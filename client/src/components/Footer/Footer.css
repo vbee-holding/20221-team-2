@@ -1,0 +1,103 @@
+/* FOOTER */
+.footer {
+    background-color: rgb(40,42,53);
+    height: 300px;
+    margin-top: 10px;
+}
+
+/* CONTACT */
+.contact {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.contactTitle {
+    color: #fff;
+    margin: 10px;
+    font-size: 26px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.contactTitle:hover {
+    color: rgb(138,21,56);
+}
+
+.contactIcons {
+    margin: 12px;
+    height: 30px;
+}
+
+.contactIconsLink {
+    font-size: 30px;
+    margin: 16px;
+    color: #fff;
+}
+
+.contactIconsLink:hover {
+    color: rgb(225, 224, 224);
+}
+
+.contactDownload {
+    height: 50px;
+}
+
+.contactDownloadLink {
+    margin: 6px;
+}
+
+.contactDownloadImage {
+    margin-top: 10px;
+    margin-right: 6px;
+    
+}
+
+/* FOOTER-CONTENT */
+.footerContent {
+    color: #fff;
+    text-align: center;
+    margin-top: 76px;
+    margin-bottom: 20px;
+}
+
+/* FOOTER-ICON */
+.footerIcon {
+    text-align: center;
+    color: #fff;
+    font-size: 30px;
+}
+
+.footerIcon:hover {
+    color: pink;
+    cursor: pointer;
+}
+
+/* REGULATIONS */
+.regulations {
+    display: flex;
+    justify-content: space-between;
+    margin: 46px 14px 0;
+}
+
+.regulationsItem {
+    display: flex;
+}
+
+.regulationsItem1 {
+    text-decoration: none;
+    font-size: 14px;
+    color: #fff;
+    margin-top: 16px;
+    margin-right: 24px;
+}
+
+.regulationsItem1:hover {
+    color: rgb(138,21,56);
+    cursor: pointer;
+}
+
+.regulationsItem2 {
+    margin-top: 14px;
+    color: rgb(149, 146, 147);
+}
