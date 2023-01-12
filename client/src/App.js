@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
+
 import Home from './pages/Home/Home'
 import Match from './pages/Match/Match'
 import MatchDetail from './pages/Match/MatchDetail/MatchDetail'
@@ -9,12 +10,13 @@ import Ranking from './pages/Rankings/Rangking'
 import Stat from './pages/Stats/Stat'
 
 function App() {
+
   return (
     <div className="App">
       <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='/match' element={<Match />}/>
-        <Route path='/matchDetail'element={<MatchDetail />}/>
+        <Route path='/matchDetail/:id' element={<MatchDetail />}/>
         <Route path='/matchChart' element={<MatchChart />}/>
         <Route path='/news' element={<News />}/>
         <Route path='/player' element={<Player />}/>
