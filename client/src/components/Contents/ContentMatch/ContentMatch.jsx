@@ -13,7 +13,7 @@ const ContentMatch = () => {
                         <div className='loop2'>
                             {element.map((child) => (
                                 <div key={child.id} className='loop21'>
-                                    <Link to='/matchDetail' className='loop21Item1'>
+                                    <Link to={`/matchDetail/${child.id}`} className='loop21Item1'>
                                         <div className='loop21Item1Frame'>
                                             <div className='frameChild'>{child.table}</div>
                                             <div className='frameChild1'>

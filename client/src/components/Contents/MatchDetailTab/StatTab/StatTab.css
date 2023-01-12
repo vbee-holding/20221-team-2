@@ -1,0 +1,41 @@
+/* StatTab */
+.selectedTab2 {
+    margin-top: 20px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.selectedTab2List1 {
+    margin-left: 60px;
+}
+
+.selectedTab2Img {
+    width: 40px;
+    height: 40px;
+}
+
+.selectedTab2Item1 {
+    text-align: center;
+    margin-top: 14px;
+}
+
+.selectedTab2Title {
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.selectedTab2Item2 {
+    text-align: center;
+    margin-top: 14px;
+}
+
+.selectedTab2List3 {
+    margin-right: 60px;
+}
+
+.selectedTab2Item3 {
+    text-align: center;
+    margin-top: 14px;
+}
