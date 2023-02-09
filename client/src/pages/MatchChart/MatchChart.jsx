@@ -1,15 +1,15 @@
 import './MatchChart.css'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
+import App from '../../components/Contents/MarchChart/MartChart'
 
 const MatchChart = () => {
     return (
         <div>
             <Header />
-            <h1 className='matchChart'>Sơ đồ thi đấu</h1>
+               <App/>
             <Footer />
         </div>
     )
 }
-
 export default MatchChart
