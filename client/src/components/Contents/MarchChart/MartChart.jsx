@@ -9,11 +9,11 @@ import {
 // import{ useWindowSize } from "@react-hook/window-size"
 import "./MartChart.css";
 import { Bracket } from '../../../apis/apiMartChart';
-  export default function App() {
+export default function App() {
     return <SingleElimination />;
-  }
+}
   
-  export const SingleElimination = () => (
+export const SingleElimination = () => (
     <SingleEliminationBracket
       theme={GlootTheme}
       matches={Bracket}
@@ -34,9 +34,9 @@ import { Bracket } from '../../../apis/apiMartChart';
       onPartyClick={(match) => console.log("chi tiết đội bóng")}
       
     />
-  );
+);
   
-  const GlootTheme = createTheme({
+const GlootTheme = createTheme({
     textColor: { main: "#000000", highlighted: "#F4F2FE", dark: "#707582" },
     matchBackground: { wonColor: "#2D2D59", lostColor: "#1B1D2D" },
     score: {
@@ -54,4 +54,4 @@ import { Bracket } from '../../../apis/apiMartChart';
     connectorColor: "#E34949",
     connectorColorHighlight: "#E34949",
     svgBackground: "#0F121C"
-  });
+});
