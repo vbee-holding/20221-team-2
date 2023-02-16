@@ -9,8 +9,8 @@ const Navbar = () => {
             <Link to='/news' className='navItem'>Tin tức</Link>
             <Link to='/matchChart' className='navItem'>Sơ đồ thi đấu</Link>
             <Link to='/player' className='navItem'>Cầu thủ</Link>
-            <Link to='/ranking' className='navItem'>Số liệu thống kê</Link>
-            <Link to='/stat' className='navItem'>Bảng xếp hạng</Link>
+            <Link to='/stat' className='navItem'>Số liệu thống kê</Link>
+            <Link to='/ranking' className='navItem'>Bảng xếp hạng</Link>
         </div>
     )
 }

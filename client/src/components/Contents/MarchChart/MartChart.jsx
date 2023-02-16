@@ -5,16 +5,33 @@ import {
     SVGViewer,
     createTheme
   } from "@g-loot/react-tournament-brackets";
-
-// import{ useWindowSize } from "@react-hook/window-size"
+  import { Routes, Route, useNavigate} from 'react-router-dom';
 import "./MartChart.css";
 import { Bracket } from '../../../apis/apiMartChart';
-export default function App() {
-    return <SingleElimination />;
+const MartChart = () => {
+  const navigate = useNavigate();
+  const GoToMatchDetail = (id) =>{
+  console.log(id)
+  navigate(`/matchDetail/${id}`,{replace: true})
 }
-  
-export const SingleElimination = () => (
-    <SingleEliminationBracket
+  return(
+    <div className="Home">
+      <section className='p-3'>
+              <div className="container">
+                  <div className="grid">
+                      <div className="row">
+                          <div className="col">
+                              <p className="h3">
+                                  Vòng 16
+                              </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </section>
+      <div className="line"></div>
+
+      <SingleEliminationBracket
       theme={GlootTheme}
       matches={Bracket}
       matchComponent={Match}
@@ -30,12 +47,12 @@ export const SingleElimination = () => (
           {children}
         </SVGViewer>
       )}
-      onMatchClick={(match) => console.log("chi tiết trận đấu")}
-      onPartyClick={(match) => console.log("chi tiết đội bóng")}
-      
+      onMatchClick={(match) => GoToMatchDetail(match.match.id)}
+      onPartyClick={(match) => console.log("chi tiết đội bóng", match.id)}
     />
-);
-  
+    </div>
+  )
+}
 const GlootTheme = createTheme({
     textColor: { main: "#000000", highlighted: "#F4F2FE", dark: "#707582" },
     matchBackground: { wonColor: "#2D2D59", lostColor: "#1B1D2D" },
@@ -55,3 +72,4 @@ const GlootTheme = createTheme({
     connectorColorHighlight: "#E34949",
     svgBackground: "#0F121C"
 });
+export default MartChart

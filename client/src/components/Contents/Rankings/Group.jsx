@@ -1,0 +1,81 @@
+import React, { Children, useState } from 'react';
+import {useEffect} from 'react';
+import './Group.css';
+import {groupApi} from '../../../apis/apiGroup.js';
+const Group = () =>{
+    const GoToDetailTeam = (id) => {
+        console.log(typeof(id))
+        console.log("Chi tiết về đội bóng Id:", {id})
+    }
+    const teams = groupApi;
+    return(
+        <React.Fragment>
+        <div className="groups">        
+            <section className='p-3'>
+                <div className="container">
+                    <div className="grid">
+                        <div className="row">
+                            <div className="col">
+                                <p className="h3">
+                                    Vòng Bảng
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div className='line'></div>
+            <section>
+                <div className="container">
+                    <div className="row">
+                        {
+                            Object.values(teams).map(group =>{
+                                return(
+                                    <div className="col-md-4" key={group.team}>
+                                        <div className="card my-2 group">
+                                            <p className='h5 mx-2'> Group {group.team[0].table}</p> 
+                                            <div className="table-body">
+                                                        <table className='table table-hover'>
+                                                        <thead>
+                                                            <tr>
+                                                                <th>#</th>
+                                                                <th>Đội</th>
+                                                                <th>P</th>
+                                                                <th>W</th>
+                                                                <th>D</th>
+                                                                <th>L</th>
+                                                                <th>GD</th>
+                                                                <th>Pts</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            {
+                                                                group.team[1].map((team) => (
+                                                                    <tr key={team.id}>
+                                                                        <td>{team.rank}</td>
+                                                                        <th className='pointer'><li onClick={()=> GoToDetailTeam(team.id)}><img src={team.img} alt=""></img> {team.name}</li></th>
+                                                                        <td>{team.P}</td>
+                                                                        <td>{team.W}</td>
+                                                                        <td>{team.D}</td>
+                                                                        <td>{team.L}</td>
+                                                                        <td>{team.GD}</td>
+                                                                        <td>{team.Pts}</td>
+                                                                    </tr>
+                                                                ))
+                                                            }
+                                                        </tbody>
+                                                        </table>
+                                                    </div>
+                                        </div>
+                                    </div>                                   
+                                )
+                            })
+                        }                        
+                    </div>
+                </div>
+            </section>
+        </div>
+        </React.Fragment>
+    )
+};
+export default Group;
