@@ -1,12 +1,16 @@
-.MartChart {
-    margin: auto;
-    margin-top: 100px;
-    padding-top: 100px;
-    width: 100%;
+.table {
+    text-align: center;
 }
-.Home{
+.groups{
     background-color: #eeeee4;
     font-style: initial;
+}
+.group{
+    background-color: white;
+}
+img{
+    height: 10px;
+    width: 20px;
 }
 .line {
     width: 100%;
@@ -14,4 +18,10 @@
     border: 0.5px solid rgba(224, 27, 27, 0.778);
     margin: 15px;
     display:inline-block;
+}
+th.pointer{
+    cursor: pointer;
+}
+li{
+    list-style-type: none;
 }

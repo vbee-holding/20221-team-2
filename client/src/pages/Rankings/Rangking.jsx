@@ -1,15 +1,16 @@
 import './Ranking.css'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
-
+import Group from '../../components/Contents/Rankings/Group'
+import MatchChart from '../../components/Contents/MarchChart/MartChart'
 const Ranking = () => {
     return (
         <div>
             <Header />
-            <h1 className='ranking'>Bảng xếp hạng</h1>
+               <Group />
+               <MatchChart/>
             <Footer />
         </div>
     )
 }
-
 export default Ranking
