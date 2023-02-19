@@ -4,3 +4,4 @@ package-lock.json
 /controllers/DetailsMatch.js
 /models/DetailsMatch.js
 /models/TableStadiums.js
+/models/MatchSchema.js

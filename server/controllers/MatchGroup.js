@@ -92,7 +92,7 @@ module.exports = router;
         "L": 0,
         "GD": "+4",
         "Pts": 7,
-        "IdMatches": "can bo sung____"
+        "IdMatches": [đã có,chưa copy paste lại]
       },
       {
         "IdTeam": 43879,
@@ -105,7 +105,7 @@ module.exports = router;
         "L": 1,
         "GD": "+1",
         "Pts": 6,
-        "IdMatches": "can bo sung____"
+        "IdMatches":  [đã có,chưa copy paste lại]
       },
       {
         "IdTeam": 43927,
@@ -118,7 +118,7 @@ module.exports = router;
         "L": 1,
         "GD": "+1",
         "Pts": 4,
-        "IdMatches": "can bo sung____"
+        "IdMatches":  [đã có,chưa copy paste lại]
       },
       {
         "IdTeam": 43834,
@@ -131,7 +131,7 @@ module.exports = router;
         "L": 3,
         "GD": "−6",
         "Pts": 0,
-        "IdMatches": "can bo sung____"
+        "IdMatches":  [đã có,chưa copy paste lại]
       }
     ]
   } */
