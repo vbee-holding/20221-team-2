@@ -33,7 +33,7 @@ router.get('/',async (req,res)=>{
         let dataAwayTeam={
             id:dataAway.IdTeam,
             resultText:dataAway.Score,
-            isWinner:dataAway.Score>dataHome.Score,
+            isWinner:1==dataSchema.Win,
             name:dataAway.TeamName,
             picture:dataAway.PictureUrl,
             IdMatchs:matchsAway.IdMatchs
@@ -41,7 +41,7 @@ router.get('/',async (req,res)=>{
         let dataHomeTeam={
             id:dataHome.IdTeam,
             resultText:dataHome.Score,
-            isWinner:dataHome.Score>dataAway.Score,
+            isWinner:dataSchema.Win==0,
             name:dataHome.TeamName,
             picture:dataHome.PictureUrl,
             IdMatchs:matchsHome.IdMatchs
@@ -49,7 +49,7 @@ router.get('/',async (req,res)=>{
         
         let newData= {
             IdMatch:dataSchema.IDMatch,
-            nextMatchId: null,
+            nextMatchId: dataSchema.NextIdMatch,
             tournamentRoundText:index,   
             startTime:datatime.getFullYear()+"-"+(datatime.getMonth()+1)+"-"+datatime.getDay(),
             name: dataSchema.Description,
@@ -63,38 +63,56 @@ module.exports = router;
 
 //API:http://localhost:5005/api/matchschema
 /* [
-    {
-      "IdMatch": 400128134,
-      "nextMatchId": null,
-      "tournamentRoundText": 1,
-      "startTime": "2022-12-1",
-      "name": "Round of 16",
-      "participants": [
-        {
-          "id": "43879",
-          "resultText": 0,
-          "isWinner": false,
-          "name": "Senegal",
-          "picture": "https://api.fifa.com/api/v3/picture/flags-{format}-{size}/SEN",
-          "IdMatchs": "[400235448,400235451,400128134,400235449]"
-        },
-        {
-          "id": "43942",
-          "resultText": 3,
-          "isWinner": true,
-          "name": "England",
-          "picture": "https://api.fifa.com/api/v3/picture/flags-{format}-{size}/ENG",
-          "IdMatchs": "[400235454,400235458,400235457,400128134,400128138]"
-        }
-      ]
-    },
-    {
-      "IdMatch": 400128132,
-      "nextMatchId": null,
-      "tournamentRoundText": 1,
-      "startTime": "2022-12-1",
-      "name": "Round of 16",
-      "participants": [
-        { */
+  {
+    "IdMatch": 400128136,
+    "nextMatchId": 400128139,
+    "tournamentRoundText": 1,
+    "startTime": "2022-12-6",
+    "name": "Round of 16",
+    "participants": [
+      {
+        "id": "43921",
+        "resultText": "1(0)",
+        "isWinner": false,
+        "name": "United States",
+        "picture": "https://api.fifa.com/api/v3/picture/flags-{format}-{size}/USA",
+        "IdMatchs": "[400235457,400235456,400128136,400235455]"
+      },
+      {
+        "id": "43960",
+        "resultText": "3(0)",
+        "isWinner": true,
+        "name": "Netherlands",
+        "picture": "https://api.fifa.com/api/v3/picture/flags-{format}-{size}/NED",
+        "IdMatchs": "[400235449,400235452,400235450,400128136,400128139]"
+      }
+    ]
+  },
+  {
+    "IdMatch": 400128131,
+    "nextMatchId": 400128139,
+    "tournamentRoundText": 1,
+    "startTime": "2022-12-0",
+    "name": "Round of 16",
+    "participants": [
+      {
+        "id": "43976",
+        "resultText": "1(0)",
+        "isWinner": false,
+        "name": "Australia",
+        "picture": "https://api.fifa.com/api/v3/picture/flags-{format}-{size}/AUS",
+        "IdMatchs": "[400235470,400235469,400128131,400235468]"
+      },
+      {
+        "id": "43922",
+        "resultText": "2(0)",
+        "isWinner": true,
+        "name": "Argentina",
+        "picture": "https://api.fifa.com/api/v3/picture/flags-{format}-{size}/ARG",
+        "IdMatchs": "[400235464,400128139,400235461,400235462,400128131,400128143,400128145]"
+      }
+    ]
+  },
+  { */
 
         
