@@ -7,7 +7,7 @@ const path = require("path");
 const config = require('./config');
 const bodyParser = require("body-parser");
 
-mongoose.connect(config.mongoUri,{
+mongoose.connect(config.MONGODB_URL,{
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
