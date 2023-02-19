@@ -11,7 +11,9 @@ const TutorialMatchSchema = new Schema({
     Description:String,
     Group:String,
     ImageURL:String,
-    VideoURL:String
+    VideoURL:String,
+    NextIdMatch:Number,
+    Win:Number
 });
 
 
