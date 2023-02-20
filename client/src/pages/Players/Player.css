@@ -1,4 +1,67 @@
+.footer {
+    margin-top: 0px;
+}
+
 .player {
-    margin-top: 110px;
-    text-align: center;
+    margin-top: 100px;
+    margin-left: 380px;
+    max-width: 770px;
+    display: grid;
+    grid-template-columns: repeat(7, 100px);
+    grid-gap: 10px 10px;
+    border: 0.5px solid rgba(0,0,0,.12);
+    padding-top: 5px;
+    padding-left: 9px;
+    padding-bottom: 30px;
+    border-bottom: 0cm;
+    border-top: 0cm;
+}
+
+
+.loopPlayer {
+    width: 100px;
+    height: 200px;
+    border: 1px solid rgba(0,0,0,.12);
+    border-radius: 7%;
+    display: inline-block;
+}
+
+.loopImage {
+    height: 100px;
+    width: 100px;
+    border-top-left-radius: 8%;
+    border-top-right-radius: 8%;
+}
+
+.loopName {
+    font-size: 15px;
+    font-weight: 400;
+    color: black;
+    margin-left: 8px;
+}
+
+.loopPosition {
+    font-size: 12px;
+    margin-top: 8px;
+    color: gray;
+    margin-left: 8px;
+}
+
+.loopNation {
+    display: grid;
+    grid-template-columns: 15px 80px;  
+    grid-column-gap: 6px;
+    margin-left: 8px;
+    bottom: 7px;
+}
+
+.loopNationImage {
+    width: 16px;
+    height: 16px;
+}
+
+.loopNationName {
+    font-size: 12px;
+    color: gray;
+    text-align: left;
 }
