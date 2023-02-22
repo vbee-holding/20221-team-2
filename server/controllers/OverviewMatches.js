@@ -4,7 +4,8 @@ const express= require("express");
 const router = express.Router();
 const TutorialMatch = require("../models/TutorialMatch");
 const VideoURL = require("../models/VideoURL");
-const OverviewMatch=require("../models/OverviewMatches")
+const OverviewMatch=require("../models/OverviewMatches");
+const Player=require("../models/Player")
 //const Player = require("../models/Player")
 
 
@@ -22,24 +23,55 @@ router.get('/:id', async (req,res)=>{
 
 router.get('/',async (req,res)=>{
     const dataOverviewMatches= await OverviewMatch.find({});
-    for (let i = 0; i < dataOverviewMatches.length; i++) {
-        dataOverviewMatches[i].AwayTeam=JSON.parse(dataOverviewMatches[i].AwayTeam.replaceAll("\'", "\"").replaceAll("\"\"", "\"").replaceAll("\\xa0"," "));
-       
-        dataOverviewMatches[i].HomeTeam=JSON.parse(dataOverviewMatches[i].HomeTeam.replaceAll("\'", "\"").replaceAll("\"\"", "\"").replaceAll("\\xa0"," "));
-    }
-    
-    //res.send(JSON.parse(dataOverviewMatches[1].AwayTeam.replaceAll("\'", "\"")));
-    res.send(dataOverviewMatches);
-    
-    
-    //res.send(JSON.stringify(cats.AwayTeam));
-    /* let test=cats.AwayTeam;
-    var values = Object.keys(test).map(function(key) {
-        return test[key];
-    }); */
-    //dataVideo=JSON.parse(dataVideo);   
-    //res.send(cats.AwayTeam+playr);
-    //res.send(cats);
+    var dataSends=[];
 
+    for (let i = 0; i < dataOverviewMatches.length; i++) {
+        let data=dataOverviewMatches[i];
+        let Away=JSON.parse(data.AwayTeam.replaceAll("\\xa0"," "));
+        let Home=JSON.parse(data.HomeTeam.replaceAll("\\xa0"," "));
+        /* let awayBookingArr=[];
+        for (let j=0;j<Away.Bookings.length;j++){
+            let eachData=Away.Bookings[j];
+            let playerData=await Player.findOne({IdPlayer:eachData.IdPlayer});
+            let dataNeed={
+                IdPlayer:eachData.IdPlayer,
+                NamePlayer:playerData.PlayerName,
+                JerseyNum:playerData.JerseyNum,
+                Card:eachData.Card,
+                Minute:eachData.Minute,
+                UrlPlayer:null
+            }
+            awayBookingArr.push(dataNeed);
+        }
+        let homeBookingArr=Home.Bookings;
+        for (let k=0;k<Home.Bookings.length;k++){
+            let eachData=Home.Bookings[k];
+            let playerData=await Player.findOne({IdPlayer:eachData.IdPlayer});
+            let dataNeed={
+                IdPlayer:eachData.IdPlayer,
+                NamePlayer:playerData.PlayerName,
+                JerseyNum:playerData.JerseyNum,
+                Card:eachData.Card,
+                Minute:eachData.Minute,
+                UrlPlayer:null
+            }
+            homeBookingArr.push(dataNeed);
+        }
+        let dataAway={
+            IdTeam:Away.IdTeam,
+            PictureUrl:Away.PictureUrl,
+            TeamName:Away.TeamName,
+            Bookings:awayBookingArr
+        } */
+        let newData={
+            IdMatch:data.IdMatch,
+            TimeEnd:data.TimeEnd,
+            AwayTeam:Away,
+            HomeTeam:Home
+        };
+
+        dataSends.push(newData);
+    }
+    res.send(dataSends);
 })
 module.exports = router;

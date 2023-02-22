@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 const OverviewMatchSchema = new Schema({
     IdMatch:Number,
     AwayTeam:String,
-    HomeTeam:String
+    HomeTeam:String,
+    TimeEnd:String
 });
 
 
