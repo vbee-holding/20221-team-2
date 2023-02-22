@@ -3,7 +3,8 @@ const Schema = mongoose.Schema;
 
 const VideoSchema = new Schema({
     ImageURL:String,
-    VideoURL:String
+    VideoURL:String,
+    TimePlay:String
 });
 
 
