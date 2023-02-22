@@ -4,12 +4,12 @@
 .groups{
     background-color: #eeeee4;
     font-style: initial;
+    padding-top: 50px;
 }
-.group{
-    background-color: white;
+#group-team{
+    background-color: #c2f3f999;
 }
-img{
-    height: 10px;
+.icon{
     width: 20px;
 }
 .line {
@@ -24,4 +24,7 @@ th.pointer{
 }
 li{
     list-style-type: none;
+}
+.icon{
+    border-radius: 15%;
 }

@@ -4,7 +4,7 @@ import './Navbar.css'
 const Navbar = () => {
 
     return (
-        <div className='navbar'>
+        <div className='navbar-header'>
             <Link to='/match' className='navItem'>Trận đấu</Link>
             <Link to='/news' className='navItem'>Tin tức</Link>
             <Link to='/matchChart' className='navItem'>Sơ đồ thi đấu</Link>

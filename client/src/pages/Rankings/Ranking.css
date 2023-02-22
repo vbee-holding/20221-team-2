@@ -2,3 +2,13 @@
     margin-top: 110px;
     text-align: center;
 }
+.navbar-ranking{
+    background-color: rgba(156, 190, 236, 0.582);
+    border: 5px;
+    border-color: red;
+}
+.button-rank{
+    width: 125%;
+    height: 50px;
+    background-color: rgba(40, 40, 74, 0.726) !important;
+}

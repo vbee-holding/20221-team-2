@@ -8,6 +8,7 @@ import News from './pages/News/News'
 import Player from './pages/Players/Player'
 import Ranking from './pages/Rankings/Rangking'
 import Stat from './pages/Stats/Stat'
+import Team from './pages/Team/Team'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
         <Route path='/player' element={<Player />}/>
         <Route path='/ranking' element={<Ranking />}/>
         <Route path='/stat' element={<Stat />}/>
+        <Route path= '/team/:id' element={<Team/>} />
       </Routes>
     </div>
   );
