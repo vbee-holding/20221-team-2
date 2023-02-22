@@ -8,12 +8,17 @@ import {
   import { Routes, Route, useNavigate} from 'react-router-dom';
 import "./MartChart.css";
 import { Bracket } from '../../../apis/apiMartChart';
+import '../../../../node_modules/bootstrap/dist/css/bootstrap.css';
+import '../../../../node_modules/bootstrap/dist/js/bootstrap.bundle';
 const MartChart = () => {
   const navigate = useNavigate();
   const GoToMatchDetail = (id) =>{
   console.log(id)
   navigate(`/matchDetail/${id}`,{replace: true})
-}
+  }
+  const GoToTeamDetail = (id) =>{
+    navigate(`/team/${id}`, {replace: true})
+  }
   return(
     <div className="Home">
       <section className='p-3'>
@@ -22,14 +27,15 @@ const MartChart = () => {
                       <div className="row">
                           <div className="col">
                               <p className="h3">
-                                  Vòng 16
+                                  Vòng loại trực tiếp
                               </p>
                           </div>
                       </div>
                   </div>
               </div>
+              <div className="line"></div>
           </section>
-      <div className="line"></div>
+      
 
       <SingleEliminationBracket
       theme={GlootTheme}
@@ -48,7 +54,7 @@ const MartChart = () => {
         </SVGViewer>
       )}
       onMatchClick={(match) => GoToMatchDetail(match.match.id)}
-      onPartyClick={(match) => console.log("chi tiết đội bóng", match.id)}
+      onPartyClick={(match) => GoToTeamDetail(match.id)}
     />
     </div>
   )

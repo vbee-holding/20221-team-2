@@ -16,7 +16,7 @@ export const groupApi = [
                     "L": "0",
                     "GD": "4",
                     "Pts": "7",
-                    "IdMatchs":[],// danh sách id trận đấu của một đội trong cả giải đấu
+                    "IdMatchs":[1,2],// danh sách id trận đấu của một đội trong cả giải đấu
                 },
                 {
                     "id":"2",
@@ -29,7 +29,7 @@ export const groupApi = [
                     "L": "1",
                     "GD": "6",
                     "Pts": "7",
-                    "IdMatchs":[],
+                    "IdMatchs":[1,2],
                 },
                 {
                     "id":"3",
@@ -42,7 +42,7 @@ export const groupApi = [
                     "L": "1",
                     "GD": "1",
                     "Pts": "4",
-                    "IdMatchs":[],
+                    "IdMatchs":[1,2],
                 },
                 {
                     "id":"4",
@@ -55,7 +55,7 @@ export const groupApi = [
                     "L": "3",
                     "GD": "-6",
                     "Pts": "0",
-                    "IdMatchs":[],
+                    "IdMatchs":[1,2],
                 }
             ]
         ]

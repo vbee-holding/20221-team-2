@@ -1,0 +1,16 @@
+.team{
+    padding-top: 100px;
+}
+.icon-header-team{
+    /* display: flex; */
+    width: 80px;
+    height:100%;
+}
+.header-team{
+    background-color: aqua;
+}
+.button-team-click{
+    background-color: rgb(28, 95, 146) !important;
+    cursor: pointer;
+    color: white !important;
+}
