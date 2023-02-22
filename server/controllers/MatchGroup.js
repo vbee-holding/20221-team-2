@@ -1,80 +1,16 @@
 const express= require("express");
 const router = express.Router();
 const MatchGroup = require("../models/MatchGroup");
-const GroupJson = require("../models/GroupJson");
-const Team = require("../models/Team");
-
-
 
 router.get('/:id', async (req,res)=>{
-    const dataId = await MatchGroup.findOne({Pos: req.params.id});
-    if(!dataId){
-        res.status(404).send({
-            message:'not found'
-        });
-        return;
-    } 
-    var resData = {
-        Group:req.params.id,
-        Data: []
-     };
-    for (let i = 0; i < 4; i++){
-        let urlImg= await Team.findOne({IdTeam:JSON.parse(dataId.IdTeam.replaceAll("\'", "\""))[i]});
-        let newData= {
-            IdTeam: JSON.parse(dataId.IdTeam.replaceAll("\'", "\""))[i],
-            Rank: JSON.parse(dataId.Rank.replaceAll("\'", "\""))[i],
-            TeamName:JSON.parse(dataId.Team.replaceAll("\'", "\""))[i],
-            ImgUrl:urlImg.PictureUrl,
-            Pld:JSON.parse(dataId.Pld.replaceAll("\'", "\""))[i],
-            W:JSON.parse(dataId.W.replaceAll("\'", "\""))[i],
-            D:JSON.parse(dataId.D.replaceAll("\'", "\""))[i],
-            L:JSON.parse(dataId.L.replaceAll("\'", "\""))[i],
-            GD:JSON.parse(dataId.GD.replaceAll("\'", "\""))[i],
-            Pts:JSON.parse(dataId.Pts.replaceAll("\'", "\""))[i],
-            IdMatches:urlImg.IdMatchs
-        };
-        resData.Data.push(newData);
-    }
-    res.send(resData);
-})
-
+  const dataKey = await MatchGroup.findOne({Group: req.params.id});
+    
+  res.send(dataKey);
+});
 router.get('/',async (req,res)=>{
-    const datas= await MatchGroup.find({});
-    var resDatas = {
-        Datas: []
-     };
-    for (let k = 0; k < datas.length; k++){
-        let dataId=datas[k];
-        let resData = {
-            Group:dataId.Pos,
-            Data: []
-         };
-         for (let i = 0; i < 4; i++){
-            let urlImg= await Team.findOne({IdTeam:JSON.parse(dataId.IdTeam.replaceAll("\'", "\""))[i]});
-            let newData= {
-                IdTeam: JSON.parse(dataId.IdTeam.replaceAll("\'", "\""))[i],
-                Rank: JSON.parse(dataId.Rank.replaceAll("\'", "\""))[i],
-                TeamName:JSON.parse(dataId.Team.replaceAll("\'", "\""))[i],
-                ImgUrl:urlImg.PictureUrl,
-                Pld:JSON.parse(dataId.Pld.replaceAll("\'", "\""))[i],
-                W:JSON.parse(dataId.W.replaceAll("\'", "\""))[i],
-                D:JSON.parse(dataId.D.replaceAll("\'", "\""))[i],
-                L:JSON.parse(dataId.L.replaceAll("\'", "\""))[i],
-                GD:JSON.parse(dataId.GD.replaceAll("\'", "\""))[i],
-                Pts:JSON.parse(dataId.Pts.replaceAll("\'", "\""))[i],
-                IdMatches:urlImg.IdMatchs
-            };
-            resData.Data.push(newData);
-        }
-        resDatas.Datas.push(resData);
-
-    }
-    
-    res.send(resDatas);
-    
-    
-  
-})
+  const resDatas = await MatchGroup.find({});
+  res.send(resDatas);
+});
 
 module.exports = router;
 //API:http://localhost:5005/api/matchsgroup
@@ -135,3 +71,4 @@ module.exports = router;
       }
     ]
   } */
+

@@ -32,52 +32,113 @@ router.get('/:id', async (req,res)=>{
 router.get('/',async (req,res)=>{
     //const dataOverviewMatches= await OverviewMatch.findOne({});
     const datas= await TutorialMatch.find({});
+<<<<<<< HEAD
+=======
     const dataOverviewMatches= await OverviewMatch.find({});
+    
+>>>>>>> 70709d9 (update all api controllers,models matches)
     var dataSends={};
     for (let i = 0; i < datas.length; i++){
         let datamatchs = datas[i];
-        let dataOverView=dataOverviewMatches[i];
         const video= await VideoURL.findOne({IdMatch:datamatchs.IDMatch});
         let datatime=new Date(datamatchs.LocalDate);
         let datemonth=datatime.getDate()+"/"+(datatime.getMonth()+1);
-        let awayData=JSON.parse(dataOverView.AwayTeam.replaceAll("\\xa0", " "));
-        let homeData=JSON.parse(dataOverView.HomeTeam.replaceAll("\\xa0", " "));
+<<<<<<< HEAD
+=======
+        let awayData=dataOverView.AwayTeam;
+        let homeData=dataOverView.HomeTeam;
+>>>>>>> 70709d9 (update all api controllers,models matches)
         let newData= {
-            IdMatch:datamatchs.IDMatch,
+            IdMatch:datamatchs.IdMatch,
             groupStage: datamatchs.Description,
             stadium: "tao bang stadium id",
-            linkStadium:datamatchs.IDStadium,
+            stadiumId:datamatchs.IDStadium,
             date:datemonth,
-            video:video.VideoURL,
-            timehighlight:video.TimePlay,
-            table:datamatchs.Group,
-            awayTeam:awayData.TeamName,
-            linkawayTeam:awayData.IdTeam,
-            imageawayTeam:awayData.PictureUrl,
-            homeTeam:homeData.TeamName,
-            linkhomeTeam:homeData.IdTeam,
-            imagehomeTeam:homeData.PictureUrl,
-            score:[awayData.Score,homeData.Score],
-            scorerawayTeam:awayData.Goals,
-            scorerhomeTeam:homeData.Goals,
-            imagehightlight:video.ImageURL       
+            urlVideo:video.VideoURL,
+            timeHightLight:null,
+            eventGoals:null,
+            urlImage:video.ImageURL,
+            group:datamatchs.Group,
+            AwayTeam:JSON.parse(datamatchs.AwayTeam.replaceAll("\'", "\"")),
+            HomeTeam:JSON.parse(datamatchs.HomeTeam.replaceAll("\'", "\"")),
         };
+        
         if(!dataSends.hasOwnProperty(datemonth)){
             dataSends[datemonth]=[newData];
         }
-        if(dataSends.hasOwnProperty(datemonth)){  
+        else {  
             dataSends[datemonth].push(newData);
         }
     }
     res.send(dataSends);
+    
 })
 module.exports = router;
 
-
+//if(dataSends.hasOwnProperty(datemonth))
 //Api: http://localhost:5005/api/tutorialmatch
 /* {
     "22/11": [
       {
-
-*/
- 
+        "groupStage": "First stage",
+        "stadium": "tao bang stadium id",
+        "stadiumId": 400090322,
+        "date": "22/11",
+        "urlVideo": "https://www.fifa.com/fifaplus/en/watch/6rnLprZqfXGriMwByd6wt8",
+        "timeHightLight": null,
+        "eventGoals": null,
+        "urlImage": "https://digitalhub.fifa.com/transform/b943fe69-9cc1-493b-98cd-e8fd0afe204f/USA_WAL_B_FWC22_2",
+        "group": "Group D",
+        "AwayTeam": {
+          "Score": 0,
+          "IdTeam": "43888",
+          "PictureUrl": "https://api.fifa.com/api/v3/picture/flags-{format}-{size}/TUN",
+          "TeamName": "Tunisia"
+        },
+        "HomeTeam": {
+          "Score": 0,
+          "IdTeam": "43941",
+          "PictureUrl": "https://api.fifa.com/api/v3/picture/flags-{format}-{size}/DEN",
+          "TeamName": "Denmark"
+        }
+      },
+      {
+        "groupStage": "First stage",
+        "stadium": "tao bang stadium id",
+        "stadiumId": 400090322,
+        "date": "22/11",
+        "urlVideo": "https://www.fifa.com/fifaplus/en/watch/6rnLprZqfXGriMwByd6wt8",
+        "timeHightLight": null,
+        "eventGoals": null,
+        "urlImage": "https://digitalhub.fifa.com/transform/b943fe69-9cc1-493b-98cd-e8fd0afe204f/USA_WAL_B_FWC22_2",
+        "group": "Group D",
+        "AwayTeam": {
+          "Score": 0,
+          "IdTeam": "43888",
+          "PictureUrl": "https://api.fifa.com/api/v3/picture/flags-{format}-{size}/TUN",
+          "TeamName": "Tunisia"
+        },
+        "HomeTeam": {
+          "Score": 0,
+          "IdTeam": "43941",
+          "PictureUrl": "https://api.fifa.com/api/v3/picture/flags-{format}-{size}/DEN",
+          "TeamName": "Denmark"
+        }
+      },
+      {
+        "groupStage": "First stage",
+        "stadium": "tao bang stadium id",
+        "stadiumId": 400090320,
+        "date": "22/11",
+        "urlVideo": "https://www.fifa.com/fifaplus/en/watch/6rnLprZqfXGriMwByd6wt8",
+        "timeHightLight": null,
+        "eventGoals": null,
+        "urlImage": "https://digitalhub.fifa.com/transform/b943fe69-9cc1-493b-98cd-e8fd0afe204f/USA_WAL_B_FWC22_2",
+        "group": "Group B",
+        "AwayTeam": {
+          "Score": 1,
+          "IdTeam": "43974",
+          "PictureUrl": "https://api.fifa.com/api/v3/picture/flags-{format}-{size}/WAL",
+          "TeamName": "Wales"
+        }, */
+        

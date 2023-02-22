@@ -1,10 +1,10 @@
 const express= require("express");
 const router = express.Router();
-const TutorialMatch = require("../models/TutorialMatch");
-const VideoURL = require("../models/VideoURL");
-const OverviewMatch=require("../models/OverviewMatches");
+//const TutorialMatch = require("../models/TutorialMatch");
+//const VideoURL = require("../models/VideoURL");
+//const OverviewMatch=require("../models/OverviewMatches");
 const Team=require("../models/Team");
-const DetailsMatch = require("../models/DetailsMatch")
+//const DetailsMatch = require("../models/DetailsMatch")
 //const Player = require("../models/Player")
 
 router.get('/:id', async (req,res)=>{

@@ -2,62 +2,19 @@ const express= require("express");
 const router = express.Router();
 const TutorialMatch = require("../models/TutorialMatch");
 const Team = require("../models/Team");
+const matchschemal = require("../models/MatchSchema");
+
+router.get('/:id',async (req,res)=>{
+  const data= await matchschemal.findOne({IdMatch:req.params.id});
+  res.send(data);
+
+});
+
 
 router.get('/',async (req,res)=>{
-    //const dataOverviewMatches= await OverviewMatch.findOne({});
-    const datas= await TutorialMatch.find({});
-    var dataSends=[];
-    for (let i = 0; i < datas.length; i++){
-        let dataSchema = datas[i];
-        let index;
-        if(dataSchema.Description=="First stage"){
-            continue;
-        }
-        if(dataSchema.Description=="Round of 16"){
-            index=1;
-        }
-        if(dataSchema.Description=="Semi-final"){
-            index=3;
-        }
-        if(dataSchema.Description=="Quarter-final"){
-            index=2;
-        }
-        if(dataSchema.Description=="Final"){
-            index=4;
-        }
-        let datatime=new Date(dataSchema.LocalDate);
-        dataAway=JSON.parse(dataSchema.AwayTeam.replaceAll("\'", "\""));
-        dataHome=JSON.parse(dataSchema.HomeTeam.replaceAll("\'", "\""));
-        let matchsAway= await Team.findOne({IdTeam:dataAway.IdTeam});
-        let matchsHome = await Team.findOne({IdTeam:dataHome.IdTeam});
-        let dataAwayTeam={
-            id:dataAway.IdTeam,
-            resultText:dataAway.Score,
-            isWinner:1==dataSchema.Win,
-            name:dataAway.TeamName,
-            picture:dataAway.PictureUrl,
-            IdMatchs:matchsAway.IdMatchs
-        }
-        let dataHomeTeam={
-            id:dataHome.IdTeam,
-            resultText:dataHome.Score,
-            isWinner:dataSchema.Win==0,
-            name:dataHome.TeamName,
-            picture:dataHome.PictureUrl,
-            IdMatchs:matchsHome.IdMatchs
-        }
-        
-        let newData= {
-            IdMatch:dataSchema.IDMatch,
-            nextMatchId: dataSchema.NextIdMatch,
-            tournamentRoundText:index,   
-            startTime:datatime.getFullYear()+"-"+(datatime.getMonth()+1)+"-"+datatime.getDay(),
-            name: dataSchema.Description,
-            participants:[dataAwayTeam,dataHomeTeam]
-        };
-        dataSends.push(newData);
-    }
-    res.send(dataSends);
+
+  const datas= await matchschemal.find({});
+  res.send(datas);
 })
 module.exports = router;
 
@@ -114,5 +71,62 @@ module.exports = router;
     ]
   },
   { */
+
+
+
+  /* //const dataOverviewMatches= await OverviewMatch.findOne({});
+  const datas= await TutorialMatch.find({});
+  var dataSends=[];
+  for (let i = 0; i < datas.length; i++){
+      let dataSchema = datas[i];
+      let index;
+      if(dataSchema.Description=="Vòng đấu bảng"){
+          continue;
+      }
+      if(dataSchema.Description=="Vòng 16 đội"){
+          index=1;
+      }
+      if(dataSchema.Description=="Bán kết"){
+          index=3;
+      }
+      if(dataSchema.Description=="Vòng tứ kết"){
+          index=2;
+      }
+      if(dataSchema.Description=="Chung kết"){
+          index=4;
+      }
+      let datatime=new Date(dataSchema.LocalDate);
+      dataAway=JSON.parse(dataSchema.AwayTeam.replaceAll("\'", "\""));
+      dataHome=JSON.parse(dataSchema.HomeTeam.replaceAll("\'", "\""));
+      let matchsAway= await Team.findOne({IdTeam:dataAway.IdTeam});
+      let matchsHome = await Team.findOne({IdTeam:dataHome.IdTeam});
+      let dataAwayTeam={
+          id:dataAway.IdTeam,
+          resultText:dataAway.Score,
+          isWinner:1==dataSchema.Win,
+          name:dataAway.TeamName,
+          picture:dataAway.PictureUrl,
+          IdMatchs:matchsAway.IdMatchs
+      }
+      let dataHomeTeam={
+          id:dataHome.IdTeam,
+          resultText:dataHome.Score,
+          isWinner:dataSchema.Win==0,
+          name:dataHome.TeamName,
+          picture:dataHome.PictureUrl,
+          IdMatchs:matchsHome.IdMatchs
+      }
+      
+      let newData= {
+          IdMatch:dataSchema.IDMatch,
+          nextMatchId: dataSchema.NextIdMatch,
+          tournamentRoundText:index,   
+          startTime:datatime.getFullYear()+"-"+(datatime.getMonth()+1)+"-"+datatime.getDay(),
+          name: dataSchema.Description,
+          participants:[dataAwayTeam,dataHomeTeam]
+      };
+      dataSends.push(newData);
+  }
+  res.send(dataSends); */
 
         
