@@ -14,7 +14,7 @@
 
 .cHome1Item11Final1 {
     color: white;
-    padding: 30px 0 10px 25px;
+    padding: 30px 0 25px 25px;
     font-size: 20px;
 }
 
@@ -155,7 +155,7 @@
     opacity: 0.5;
     position: relative;
     top: 200px;
-    right: -850px;
+    right: -790px;
     border-radius: 4px;
     border: 0;
 }
@@ -216,14 +216,14 @@
 }
 
 .cHome22Img {
-    width: 300px;
-    height: 170px;
+    width: 290px;
+    height: 165px;
     border-radius: 8px;
 }
 
 .cHome22Title {
     color: black;
-    width: 300px;
+    width: 290px;
 }
 
 /* cHome3 */
@@ -259,7 +259,7 @@
 
 .cHome321Img{
     position: absolute;
-    width: 650px;
+    width: 640px;
     border-radius: 8px;
 }
 
@@ -309,7 +309,7 @@
     display: flex;
     height: 130px;
     width: 100%;
-    margin-top: 22px;
+    margin-top: 19px;
 }
 
 .cHome322Item2Img{
@@ -331,7 +331,7 @@
     display: flex;
     height: 130px;
     width: 100%;
-    margin-top: 22px;
+    margin-top: 18px;
 }
 
 .cHome322Item3Img{
@@ -373,8 +373,8 @@
 
 .cHome42Link1Img {
     border-radius: 8px;
-    width: 400px;
-    height: 230px;
+    width: 390px;
+    height: 225px;
 }
 
 .cHome42Link1Title {
@@ -383,19 +383,19 @@
 
 .cHome42Link2Img {
     border-radius: 8px;
-    width: 400px;
-    height: 230px;
+    width: 390px;
+    height: 225px;
 }
 
 .cHome42Link2title {
-    width: 390px;
+    width: 380px;
     color: black;
 }
 
 .cHome42Link3Img {
     border-radius: 8px;
-    width: 400px;
-    height: 230px;
+    width: 390px;
+    height: 225px;
 }
 
 .cHome42Link3Title {
@@ -427,8 +427,8 @@
 
 .cHome521Img{
     border-radius: 8px;
-    height: 350px;
-    width: 620px;
+    height: 340px;
+    width: 590px;
 }
 
 .cHome521Title{
@@ -437,8 +437,8 @@
 
 .cHome522Img{
     border-radius: 8px;
-    height: 350px;
-    width: 620px;
+    height: 340px;
+    width: 590px;
 }
 
 .cHome522Title{
@@ -472,11 +472,11 @@
 
 .cHome62Img {
     border-radius: 4px;
-    width: 300px;
-    height: 170px;
+    width: 282px;
+    height: 160px;
 }
 
 .cHome62Title {
     color: black;
-    width: 290px;
+    width: 280px;
 }

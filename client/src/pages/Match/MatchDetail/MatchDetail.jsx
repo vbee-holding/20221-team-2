@@ -80,7 +80,7 @@ const MatchDetail = () => {
                     </a>
                 </div>
                 <div className='mDetail7'>
-                    <button className='mDetail7Item' onClick={() => handleTabChange(0)}>DIỄN BIẾN CHÍNH</button>
+                    <button autoFocus className='mDetail7Item' onClick={() => handleTabChange(0)}>DIỄN BIẾN CHÍNH</button>
                     <button className='mDetail7Item' onClick={() => handleTabChange(1)}>ĐỘI HÌNH RA SÂN</button>
                     <button className='mDetail7Item' onClick={() => handleTabChange(2)}>THỐNG KÊ</button>
                     <button className='mDetail7Item' onClick={() => handleTabChange(3)}>TIN TỨC</button>
