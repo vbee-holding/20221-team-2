@@ -26,7 +26,7 @@ const MatchDetail = () => {
     const { id } = useParams()
     //Dùng vòng kết hợp vòng lặp map và find để lọc được mảng thõa mãn điều kiện
     const ArrFind =(Object.values(MatchApi).map((element) => (
-        element.find(child => child.id === id)
+        element.find(child => child.IdMatch === id)
     )))
     //Dùng vòng lặp filter để loại bỏ mảng có giá trị undefined
     const ArrFilter = ArrFind.filter(element => element !== undefined)

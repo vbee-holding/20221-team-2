@@ -5,7 +5,7 @@ import {
     SVGViewer,
     createTheme
   } from "@g-loot/react-tournament-brackets";
-  import { Routes, Route, useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import "./MartChart.css";
 import { Bracket } from '../../../apis/apiMartChart';
 import '../../../../node_modules/bootstrap/dist/css/bootstrap.css';
@@ -35,8 +35,6 @@ const MartChart = () => {
               </div>
               <div className="line"></div>
           </section>
-      
-
       <SingleEliminationBracket
       theme={GlootTheme}
       matches={Bracket}

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import logoWC from './Logo/Logo.png'
 import Navbar from './Navbar/Navbar'
 
-const Header = (props) => {
+const Header = () => {
     return (
         <div className='header'>
             <Link to='/' className='headerLogoTitle'>

@@ -17,7 +17,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='/match' element={<Match />}/>
-        <Route path='/matchDetail/:id' element={<MatchDetail />}/>
+        <Route path='/matchDetail/:IdMatch' element={<MatchDetail />}/>
         <Route path='/matchChart' element={<MatchChart />}/>
         <Route path='/news' element={<News />}/>
         <Route path='/player' element={<Player />}/>

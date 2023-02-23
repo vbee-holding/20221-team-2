@@ -22,16 +22,16 @@ app.use(express.static(path.join(__dirname, "..","client/build")));
 
 app.use('/api/player',require("./controllers/Player"));
 app.use('/api/tutorialmatch',require("./controllers/TutorialMatch"));
-app.use('/api/hightlight',require("./controllers/VideoURL"));
+// app.use('/api/hightlight',require("./controllers/VideoURL"));
 app.use('/api/overviewmatch',require("./controllers/OverviewMatches"));
 app.use('/api/team',require("./controllers/Team"))
 app.use('/api/matchgroup',require("./controllers/MatchGroup"))
-app.use('/api/detailmatch',require("./controllers/DetailsMatch"));
+// app.use('/api/detailmatch',require("./controllers/DetailsMatch"));
 app.use('/api/matchschema',require("./controllers/MatchSchema"));
 
-/* app.get('*',(req,res)=>{
+app.get('*',(req,res)=>{
     res.sendFile(path.join(__dirname, "..","client/build/index.html"));
-}); */
+});
 
 //const PORT = 5005;
 app.listen(config.PORT,()=> console.log('server running on port'+ config.PORT))
