@@ -1,8 +1,4 @@
 package-lock.json
 /node_modules
-/controllers/VideoUrl.js
-/controllers/DetailsMatch.js
-/models/DetailsMatch.js
-/models/TableStadiums.js
-/models/MatchSchema.js
+
 .env

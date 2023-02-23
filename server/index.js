@@ -22,7 +22,7 @@ app.use(express.static(path.join(__dirname, "..","client/build")));
 
 app.use('/api/player',require("./controllers/Player"));
 app.use('/api/tutorialmatch',require("./controllers/TutorialMatch"));
-app.use('/api/hightlight',require("./controllers/VideoURL"));
+//app.use('/api/hightlight',require("./controllers/VideoURL"));
 app.use('/api/overviewmatch',require("./controllers/OverviewMatches"));
 app.use('/api/team',require("./controllers/Team"))
 app.use('/api/matchgroup',require("./controllers/MatchGroup"))
