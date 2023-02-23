@@ -18,7 +18,8 @@ router.get('/:id', async (req,res)=>{
 })
 
 router.get('/',async (req,res)=>{ 
-    const datas= await Player.find({});
+    //{"message":43922}
+    const datas= await Player.find({IdTeam:req.body.message});
     var dataSends={};
     for (let i = 0; i < datas.length; i++){
         let dataPlayer = datas[i];
