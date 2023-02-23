@@ -3,14 +3,14 @@ const router = express.Router();
 const TutorialMatch = require("../models/TutorialMatch");
 const VideoURL = require("../models/VideoURL");
 const OverviewMatch=require("../models/OverviewMatches")
-//const Player = require("../models/Player")
+const Stadium = require("../models/Stadium");
 
 
 
 
 router.get('/:id', async (req,res)=>{
     let datamatchs = await TutorialMatch.findOne({IDMatch: req.params.id});//find hoac findall tim 1 list=>ko index replace dc 
-    const video= await VideoURL.findOne({IdMatch:datamatchs.IDMatch});
+    let video= await VideoURL.findOne({IdMatch:datamatchs.IDMatch});
     let datatime=new Date(datamatchs.LocalDate);
     let newData= {
         IdMatch:datamatchs.IdMatch,
@@ -30,23 +30,24 @@ router.get('/:id', async (req,res)=>{
 })
 
 router.get('/',async (req,res)=>{
-    //const dataOverviewMatches= await OverviewMatch.findOne({});
     const datas= await TutorialMatch.find({});
     const dataOverviewMatches= await OverviewMatch.find({});
+    
     var dataSends={};
     for (let i = 0; i < datas.length; i++){
         let datamatchs = datas[i];
         let dataOverView=dataOverviewMatches[i];
-        const video= await VideoURL.findOne({IdMatch:datamatchs.IDMatch});
+        let video= await VideoURL.findOne({IdMatch:datamatchs.IDMatch});
+        let stadium = await Stadium.findOne({IdStadium:datamatchs.IDStadium});
         let datatime=new Date(datamatchs.LocalDate);
         let datemonth=datatime.getDate()+"/"+(datatime.getMonth()+1);
-        let awayData=JSON.parse(dataOverView.AwayTeam.replaceAll("\\xa0", " "));
-        let homeData=JSON.parse(dataOverView.HomeTeam.replaceAll("\\xa0", " "));
+        let awayData=dataOverView.AwayTeam;
+        let homeData=dataOverView.HomeTeam;
         let newData= {
             IdMatch:datamatchs.IDMatch,
             groupStage: datamatchs.Description,
-            stadium: "tao bang stadium id",
-            linkStadium:datamatchs.IDStadium,
+            stadium: stadium.Stadium,
+            linkStadium:"https://vi.wikipedia.org/"+stadium.Stadium_URL,
             date:datemonth,
             video:video.VideoURL,
             timehighlight:video.TimePlay,
@@ -62,22 +63,17 @@ router.get('/',async (req,res)=>{
             scorerhomeTeam:homeData.Goals,
             imagehightlight:video.ImageURL       
         };
+        
         if(!dataSends.hasOwnProperty(datemonth)){
             dataSends[datemonth]=[newData];
         }
-        if(dataSends.hasOwnProperty(datemonth)){  
+        else {  
             dataSends[datemonth].push(newData);
         }
     }
     res.send(dataSends);
+    
+    
 })
 module.exports = router;
 
-
-//Api: http://localhost:5005/api/tutorialmatch
-/* {
-    "22/11": [
-      {
-
-*/
- 
