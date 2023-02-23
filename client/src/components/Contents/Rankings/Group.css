@@ -7,10 +7,13 @@
     padding-top: 50px;
 }
 #group-team{
-    background-color: #c2f3f999;
+    background-color: #c6cccd99;
 }
 .icon{
-    width: 20px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    margin: 0px 10px 0px 10px;
 }
 .line {
     width: 100%;
@@ -21,6 +24,7 @@
 }
 th.pointer{
     cursor: pointer;
+    text-align: left;
 }
 li{
     list-style-type: none;
