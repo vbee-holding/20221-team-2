@@ -6,39 +6,44 @@ const Team = require("../models/Team");
 
 
 router.get('/:id', async (req,res)=>{
-    const cat = await Player.findOne({IdPlayer:req.params.id});
-    if(!cat){
-        res.status(404).send({
-            message:'players not found'
-        });
-        return;
+    let player = await Player.findOne({IdPlayer:req.params.id});
+    let team = await Team.findOne({IdTeam:player.IdTeam});
+    let dataSend={}
+    let newData={
+        idTeam:player.IdTeam,
+        idPlayer:player.IdPlayer,
+        playerName:player.PlayerName,
+        playerPicture:player.PlayerPicture,
+        position:player.PositionLocalized,
+        nation:team.Name,
+        nationImage:team.PictureUrl.replace("{format}","sq").replace("{size}","4"),
+        infomation:"https://www.google.com/search?q="+player.PlayerName
     }
-
-    res.send(cat);
+    dataSend[player.PlayerName.toLowerCase()]=newData;
+    res.send(dataSend);
 })
 
 router.get('/',async (req,res)=>{ 
     //{"message":43922}
     const datas= await Player.find({IdTeam:req.body.message});
     var dataSends={};
-    for (let i = 0; i < datas.length; i++){
-        let dataPlayer = datas[i];
-        const teamData= await Team.findOne({IdTeam:dataPlayer.IdTeam});
-        let newData= {
-            name:dataPlayer.PlayerName,
-            image:dataPlayer.PlayerPicture,
-            position:dataPlayer.PositionLocalized,
-            nationImage:teamData.PictureUrl,
-            nation:teamData.Name,
-            infomation:{
-                IdTeam:dataPlayer.IdTeam,
-                BirthDate:dataPlayer.BirthDate,
-                JoinDate:dataPlayer.JoinDate,
-                LeaveDate:dataPlayer.LeaveDate,
-                Weight:dataPlayer.Weight
-            }
-        };
-        dataSends[dataPlayer.PlayerName]=[newData];       
+    for (let k = 0; k < datas.length; k++){
+        let player = datas[k];
+        let team = await Team.findOne({IdTeam:player.IdTeam});
+        
+        let newData={
+            idTeam:player.IdTeam,
+            idPlayer:player.IdPlayer,
+            playerName:player.PlayerName,
+            playerPicture:player.PlayerPicture,
+            position:player.PositionLocalized,
+            nation:team.Name,
+            nationImage:team.PictureUrl.replace("{format}","sq").replace("{size}","4"),
+            infomation:"https://www.google.com/search?q="+player.PlayerName
+
+    }
+    dataSends[player.PlayerName.toLowerCase()]=newData;
+          
     }
     res.send(dataSends);
     
