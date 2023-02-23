@@ -7,7 +7,6 @@ const Matchs = () => {
     const listMatchs = [1,2];
 
     return(
-        // <div className="container">
             <div className="Matchs">
                 <div className="d-flex justify-content-center Matchs-body">
                     <div className="col-md-8">
@@ -50,7 +49,6 @@ const Matchs = () => {
                     </div>
                 </div>
             </div>
-        // </div>
     )
 }
 export default Matchs;
