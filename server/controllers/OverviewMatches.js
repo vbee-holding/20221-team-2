@@ -3,7 +3,7 @@ const router = express.Router();
 const OverviewMatch=require("../models/OverviewMatches");
 
 router.get('/:id', async (req,res)=>{
-    const dataOverviewMatche= await OverviewMatch.find({IdMatch:req.params.id});
+    const dataOverviewMatche= await OverviewMatch.findOne({IdMatch:req.params.id});
     
     res.send(dataOverviewMatche); 
     
