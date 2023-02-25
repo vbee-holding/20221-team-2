@@ -6,7 +6,7 @@ const ContentNews = () => {
     const [data, setData] = useState([])
     useEffect(() => {
         async function fetchData() {
-          const result = await axios.get('./NewsData.json');
+          const result = await axios.get('/api/news');
           console.log(result.data)
           setData(result.data);
         }
@@ -15,13 +15,15 @@ const ContentNews = () => {
     return(
         <div className='cNews'>
             {data.map(element => (
-                <a className='cNewsLink' key={element.link} href={element.link}>
-                    <div>
-                        <div className='cNewsTitle'>{element.title}</div>
-                        <div className='cNewsTime'>{element.newspaper} - {element.time}</div>
-                    </div>
-                    <img className='cNewsImg' src={element.img} alt="anh" />
-                </a>
+                element.items.map((item) => (
+                    <a className='cNewsLink' key={element._id} href={item.PageUrl}>
+                        <div>
+                            <div className='cNewsTitle'>{item.title}</div>
+                            <div className='cNewsTime'>Bongdaplus - {item.dateDis} ngày trước</div>
+                        </div>
+                        <img className='cNewsImg' src={item.imageUrl} alt="anh" />
+                    </a>
+                ))
             ))}
         </div>
     )

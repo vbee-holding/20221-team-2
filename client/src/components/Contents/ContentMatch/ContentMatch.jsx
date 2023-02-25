@@ -38,11 +38,13 @@ const ContentMatch = () => {
                                                         <div className='frameChildItem12'>{child.awayTeam}</div>
                                                     </div>
                                                 </div>
-                                                <div className='frameChildItem'>
-                                                    <div className='frameChildItem2'>{child.score[1]}</div>
-                                                    <div className='frameChildItem2'>{child.score[0]}</div>
+                                                <div className='frameChildItemDisplay'>
+                                                    <div className='frameChildItem frameChildItemx'>
+                                                        <div className='frameChildItem2'>{child.score[1]}</div>
+                                                        <div className='frameChildItem2'>{child.score[0]}</div>
+                                                    </div>
+                                                    <div className='frameChildItem frameChildItemKT'>KT {child.date}</div>
                                                 </div>
-                                                <div className='frameChildItem frameChildItemKT'>KT {child.date}</div>
                                             </div>
                                         </div>
                                     </Link>
