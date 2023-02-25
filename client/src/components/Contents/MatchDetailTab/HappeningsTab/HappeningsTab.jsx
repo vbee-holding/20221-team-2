@@ -7,7 +7,7 @@ const HappeningsTab = (props) => {
             <div className='selectedTab0List1'>
                 <div className='selectedTab0Item1'>{<FaStopwatch />}</div>
                 <div className='selectedTab0Item2'>KẾT THÚC TRẬN ĐẤU</div>
-                <div className='selectedTab0Item3'>90+6'</div>
+                <div className='selectedTab0Item3'>{props.TimeEnd}</div>
             </div>
             <div className='selectedTab0List2'>
                 <div className='tab0Item1'>
@@ -23,7 +23,8 @@ const HappeningsTab = (props) => {
                         <div className='tab0Item2Title'>VÀO SÂN</div>
                         <div className='tab0Item2Name'>Alan Franco - 21</div>
                         <div className='tab0Item2Content'>
-                            <img className='tab0Item2Img' src={props.arr[0].image1} alt="ảnh QK" />
+                            {console.log(props)}
+                            <img className='tab0Item2Img' src={props.arr.AwayTeam.PictureUrl.replace('{format}', 'sq').replace('{size}','2')} alt="ảnh QK" />
                             <div className='tab0Item2Content1'>Ecuador - Tiền vệ</div>
                         </div>
                     </div>
@@ -32,7 +33,7 @@ const HappeningsTab = (props) => {
                         <div className='tab0Item3Name'>23 - Moisés Caisedo</div>
                         <div className='tab0Item3Content'>
                             <div className='tab0Item3Content1'>Tiền vệ - Ecuador</div>
-                            <img className='tab0Item3Img' src={props.arr[0].image1} alt="ảnh QK" />
+                            <img className='tab0Item3Img' src={props.arr.AwayTeam.PictureUrl.replace('{format}', 'sq').replace('{size}','2')} alt="ảnh QK" />
                         </div>
                     </div>
                 </div>
@@ -51,7 +52,7 @@ const HappeningsTab = (props) => {
                         <div className='tab0Item2Title'>VÀO SÂN</div>
                         <div className='tab0Item2Name'>Alan Franco - 21</div>
                         <div className='tab0Item2Content'>
-                            <img className='tab0Item2Img' src={props.arr[0].image1} alt="ảnh QK" />
+                            <img className='tab0Item2Img' src={props.arr.AwayTeam.PictureUrl.replace('{format}', 'sq').replace('{size}','2')} alt="ảnh QK" />
                             <div className='tab0Item2Content1'>Ecuador - Tiền vệ</div>
                         </div>
                     </div>
@@ -60,7 +61,7 @@ const HappeningsTab = (props) => {
                         <div className='tab0Item3Name'>23 - Moisés Caisedo</div>
                         <div className='tab0Item3Content'>
                             <div className='tab0Item3Content1'>Tiền vệ - Ecuador</div>
-                            <img className='tab0Item3Img' src={props.arr[0].image1} alt="ảnh QK" />
+                            <img className='tab0Item3Img' src={props.arr.AwayTeam.PictureUrl.replace('{format}', 'sq').replace('{size}','2')} alt="ảnh QK" />
                         </div>
                     </div>
                 </div>
@@ -78,7 +79,7 @@ const HappeningsTab = (props) => {
                     <div className='tab0Item2 tab0Item23'>
                         <div className='tab0Item2Name'>Akram Afif - 11</div>
                         <div className='tab0Item2Content'>
-                            <img className='tab0Item2Img' src={props.arr[0].image1} alt="ảnh QK" />
+                            <img className='tab0Item2Img' src={props.arr.AwayTeam.PictureUrl.replace('{format}', 'sq').replace('{size}','2')} alt="ảnh QK" />
                             <div className='tab0Item2Content1'>Ecuador - Tiền đạo</div>
                         </div>
                     </div>

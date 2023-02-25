@@ -13,3 +13,7 @@
 .selectedTab3Title {
     text-align: center;
 }
+
+.selectedTab3TitleNews:hover {
+    text-decoration: underline;
+}
