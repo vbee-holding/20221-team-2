@@ -4,18 +4,6 @@ import './ContentNews.css'
 
 const ContentNews = () => {
     const [data, setData] = useState([])
-    // useEffect(() => {
-    //     fetch('http://localhost:3000/NewsData.json')
-    //     .then(response => {
-    //         return response.json()
-    //     })
-    //     .then(data => {
-    //         setData(data)
-    //     })
-    //     .catch(error => {
-    //         console.error(error)
-    //     })
-    // }, [])
     useEffect(() => {
         async function fetchData() {
           const result = await axios.get('./NewsData.json');
@@ -24,8 +12,6 @@ const ContentNews = () => {
         }
         fetchData();
     }, []);
-    
-
     return(
         <div className='cNews'>
             {data.map(element => (

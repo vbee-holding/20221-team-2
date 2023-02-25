@@ -100,3 +100,31 @@
     width: 80px;
     height: 46px;
 }
+
+.loop21Item2Icon {
+    position: relative;
+    bottom: 46px;
+    right: 0px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    width: 80px;
+    height: 46px;
+    background-color: black;
+    display: flex;
+    align-items:center;
+    opacity: 0.3;
+}
+
+.loop21Item2Icon:hover {
+    opacity: 0.2;
+}
+
+.loop21Item2Icon1 {
+    position: relative;
+    bottom: 76px;
+    right: -16px;
+    color: #fff;
+    font-size: 12px;
+    cursor: pointer;
+}

@@ -88,8 +88,16 @@
 }
 
 .mDetail4List {
-    font-size: 12px;
     margin: 0 40px;
+}
+
+.mDetail4ListPlayer:hover {
+    text-decoration: underline;
+}
+
+.mDetail4ListPlayer {
+    color: black;
+    font-size: 12px;
 }
 
 .mDetail4Futbol {
@@ -116,7 +124,7 @@
 
 .mDetail6 {
     width: 790px;
-    margin-top: 10px;
+    margin-top: 4px;
     position: relative;
 }
 
@@ -141,10 +149,12 @@
     padding-left: 30px;
     padding-top: 5px;
     font-size: 30px;
+    margin-bottom: 4px;
 }
 
 .mDetail6TextItem2 {
     padding-left: 8px;
+    margin-top: 8px;
 }
 
 .mDetail7 {
