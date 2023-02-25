@@ -2,7 +2,13 @@ const express= require("express");
 const router = express.Router();
 const Player = require("../models/Player");
 const Team = require("../models/Team");
-
+function titleCase(str) {
+    var splitStr = str.toLowerCase().split(' ');
+    for (var i = 0; i < splitStr.length; i++) {
+        splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
+    }
+    return splitStr.join(' '); 
+ }
 
 
 router.get('/:id', async (req,res)=>{
@@ -35,11 +41,10 @@ router.get('/',async (req,res)=>{
     for (let k = 0; k < datas.length; k++){
         let player = datas[k];
         let team = await Team.findOne({IdTeam:player.IdTeam});
-        
         let newData={
             idTeam:player.IdTeam,
             idPlayer:player.IdPlayer,
-            playerName:player.PlayerName,
+            playerName:titleCase(player.PlayerName.toLowerCase()),
             playerPicture:player.PlayerPicture,
             position:player.PositionLocalized,
             nation:team.Name,
@@ -49,7 +54,7 @@ router.get('/',async (req,res)=>{
     }
     dataSends[player.PlayerName.toLowerCase()]=newData;
           
-    }
+    } 
     res.send(dataSends);
     
 })
