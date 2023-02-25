@@ -9,7 +9,7 @@ const StatTab = (props) => {
         const fetchData = async () => {
             const result = await axios.get('/api/summarymatch/' + IdMatch)
             console.log(result.data)
-            setData(result.data)
+            setData([result.data])
         }
         fetchData()
     }, []);

@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react"
-// import Carousel from "react-multi-carousel"
-// import "react-multi-carousel/lib/styles.css"
+import { useState } from "react"
+import data from './HomeData.json'
 import './ContentHome.css'
 import { FaAngleRight } from 'react-icons/fa'
 
@@ -29,22 +28,8 @@ const ContentHome = () => {
         ]
     ]
 
-    const [data, setData] = useState([])
     const [currentImage, setCurrentImage] = useState(images[0])
     const [currentIndex, setCurrentIndex] = useState(1)
-
-    useEffect(() => {
-        fetch('http://localhost:3000/HomeData.json')
-        .then(response => {
-            return response.json()
-        })
-        .then(data => {
-            setData(data)
-         })
-        .catch(error => {
-            console.error(error)
-        });
-    }, [])
     
     const handleNextImage = () => {
         setCurrentIndex((currentIndex + 1) % images.length)

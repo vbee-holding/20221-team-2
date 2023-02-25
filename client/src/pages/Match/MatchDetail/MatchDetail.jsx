@@ -17,7 +17,7 @@ const MatchDetail = () => {
         const fetchData = async () => {
             const result = await axios.get('/api/overviewmatch/' + IdMatch)
             console.log(result.data)
-            setData(result.data)
+            setData([result.data])
         }
         fetchData()
     }, []);
@@ -31,7 +31,7 @@ const MatchDetail = () => {
     }
 
     //Lấy id trên URL 
-    const { id,IdMatch } = useParams()
+    const { IdMatch } = useParams()
 
     return (
         <div className='matchDetail'>
@@ -59,7 +59,7 @@ const MatchDetail = () => {
                     <div className='mDetail4'>
                         <div className='mDetail4List'>
                             {child.HomeTeam.Goals.map((element) => (
-                                <a className='mDetail4ListPlayer' href={element.UrlPlayer}>
+                                <a key={element.Minute} className='mDetail4ListPlayer' href={element.UrlPlayer}>
                                     <div className='mDetail4ListText' key={element}>{element.NamePlayer} {element.Minute}</div>
                                 </a>
                             ))}
@@ -67,7 +67,7 @@ const MatchDetail = () => {
                         <div className='mDetail4Futbol'>{<FaFutbol />}</div>
                         <div className='mDetail4List'>
                             {child.AwayTeam.Goals.map((element) => (
-                                <a className='mDetail4ListPlayer' href={element.UrlPlayer}>
+                                <a key={element.Minute} className='mDetail4ListPlayer' href={element.UrlPlayer}>
                                     <div className='mDetail4ListText' key={element}>{element.NamePlayer} {element.Minute}</div>
                                 </a>
                             ))}

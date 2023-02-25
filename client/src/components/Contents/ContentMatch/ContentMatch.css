@@ -77,6 +77,14 @@
     margin-left: 18px;
 }
 
+.frameChildItemDisplay {
+    display: flex;
+}
+
+.frameChildItemx {
+    margin-right: 64px;
+}
+
 .frameChildItem2 {
     margin-bottom: 10px;
     color: #fff;
