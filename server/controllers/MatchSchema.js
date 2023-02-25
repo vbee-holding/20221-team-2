@@ -12,6 +12,21 @@ router.get('/:id',async (req,res)=>{
 router.get('/',async (req,res)=>{
 
   const datas= await matchschemal.find({});
-  res.send(datas);
+  let dataSends=[];
+  for (let i =0;i<datas.length;i++){
+    let data=datas[i];
+    let newData={
+      id:data.IdMatch,
+      nextMatchId:data.nextMatchId,
+      tournamentRoundText:data.tournamentRoundText,
+      startTime:data.startTime,
+      name:data.name,
+      participants:data.participants
+    }
+    dataSends.push(newData);
+
+
+  }
+  res.send(dataSends);
 })
 module.exports = router;

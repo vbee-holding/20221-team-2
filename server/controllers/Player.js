@@ -24,8 +24,13 @@ router.get('/:id', async (req,res)=>{
 })
 
 router.get('/',async (req,res)=>{ 
-    //{"message":43922}
-    const datas= await Player.find({IdTeam:req.body.message});
+    const datas = await Player.aggregate((
+        [
+           { 
+             $sample: { size: 50 } 
+           }
+        ]
+     ));
     var dataSends={};
     for (let k = 0; k < datas.length; k++){
         let player = datas[k];
