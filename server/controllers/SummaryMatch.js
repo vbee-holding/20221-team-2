@@ -3,14 +3,11 @@ const router = express.Router();
 const SummaryMatch = require("../models/SummaryMatch");
 
 router.get('/:id', async (req,res)=>{
-    const match = await SummaryMatch.find({IdMatch:req.params.id});
+    const match = await SummaryMatch.findOne({IdMatch:req.params.id});
     res.send(match);
 })
 router.get('/',async (req,res)=>{    
-    const matchs = await SummaryMatch.find({});
-    
-   
-    
+    const matchs = await SummaryMatch.find({}); 
     res.send(matchs);
 })
 module.exports = router;

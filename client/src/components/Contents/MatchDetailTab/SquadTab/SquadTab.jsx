@@ -8,8 +8,8 @@ const SquadTab = (props) => {
                 <div className='tab1Item1'>
                     <div className='tab1Item11'>
                         <div className='tab1Item11Title'>
-                            <img className='tab1Item11Img' src={props.arr[0].image1} alt="ảnh QK" />
-                            <div className='tab1Item11Team'>{props.arr[0].team1} 5-3-2</div>
+                            <img className='tab1Item11Img' src={props.arr.HomeTeam.PictureUrl.replace('{format}', 'sq').replace('{size}','2')} alt="ảnh QK" />
+                            <div className='tab1Item11Team'>{props.arr.HomeTeam.TeamName} 5-3-2</div>
                         </div>
                         <pre className='tab1Item11Name'>Akram Afif           #11</pre>
                         <pre className='tab1Item11Name'>Almoez Ali           #19</pre>
@@ -56,8 +56,8 @@ const SquadTab = (props) => {
                     </div>
                     <div className='tab1Item22'>
                         <div className='tab1Item22Title'>
-                            <div className='tab1Item22Team'>4-4-2 {props.arr[0].team2}</div>
-                            <img className='tab1Item22Img' src={props.arr[0].image2} alt="ảnh QK" />
+                            <div className='tab1Item22Team'>4-4-2 {props.arr.AwayTeam.TeamName}</div>
+                            <img className='tab1Item22Img' src={props.arr.AwayTeam.PictureUrl.replace('{format}', 'sq').replace('{size}','2')} alt="ảnh QK" />
                         </div>
                         <pre className='tab1Item22Name'>#13      Enner Valencia</pre>
                         <pre className='tab1Item22Name'>#11     Michael Estrada</pre>
@@ -75,7 +75,7 @@ const SquadTab = (props) => {
             </div>
             <div className='tab1Content1'>
                 <div className='tab1Item3'>
-                    <img className='tab1Item3Img' src={props.arr[0].image1} alt="ảnh QK" />
+                    <img className='tab1Item3Img' src={props.arr.HomeTeam.PictureUrl.replace('{format}', 'sq').replace('{size}','2')} alt="ảnh QK" />
                     <pre className='tab1Item3Name'>1    Franco Armani</pre>
                     <pre className='tab1Item3Name'>2    Juan Foyth</pre>
                     <pre className='tab1Item3Name'>4    Gonzalo Montiel</pre>
@@ -95,7 +95,7 @@ const SquadTab = (props) => {
                 <div className='tab1Item4'>CẦU THỦ DỰ BỊ</div>
                 <div className='tab1Item5'>
                     <div className='tab1Item5Flex'>
-                        <img className='tab1Item5img' src={props.arr[0].image2} alt="ảnh QK" />
+                        <img className='tab1Item5img' src={props.arr.AwayTeam.PictureUrl.replace('{format}', 'sq').replace('{size}','2')} alt="ảnh QK" />
                     </div>
                     <pre className='tab1Item5Name'>Mohammed Al Yami    1</pre>
                     <pre className='tab1Item5Name'>Sultan Al-Ghannam    2</pre>
@@ -115,13 +115,13 @@ const SquadTab = (props) => {
             </div>
             <div className='tab1Content2'>
                 <div className='tab1Item6'>
-                    <img className='tab1Item3Img' src={props.arr[0].image1} alt="ảnh QK" />
+                    <img className='tab1Item3Img' src={props.arr.HomeTeam.PictureUrl.replace('{format}', 'sq').replace('{size}','2')} alt="ảnh QK" />
                     <pre>Lionel Scaloni</pre>
                 </div>
                 <div className='tab1Item7'>NGƯỜI QUẢN LÝ</div>
                 <div className='tab1Item8'>
                     <div className='tab1Item8Flex'>
-                        <img className='tab1Item5img' src={props.arr[0].image2} alt="ảnh QK" />
+                        <img className='tab1Item5img' src={props.arr.AwayTeam.PictureUrl.replace('{format}', 'sq').replace('{size}','2')} alt="ảnh QK" />
                     </div>
                     <pre>Hervé Renard</pre>
                 </div>

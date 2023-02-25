@@ -24,11 +24,11 @@ const Stat = () => {
                                     <a href={child.information}>
                                         <div className='body'>
                                             <div className='bodyRank'>{child.rankNumber}</div>
-                                            <img className='bodyImage' src={child.image} />
+                                            <img className='bodyImage' src={child.image} alt='anh'/>
                                             <div className='bodyNation'>
                                                 <div className='name'>{child.name}</div>
                                                 <div className='nation'>
-                                                    <img className='nationImage' src ={child.nationImage} />
+                                                    <img className='nationImage' src ={child.nationImage} alt='anh'/>
                                                     <div className='nationName'>{child.nationName}</div>
                                                 </div>
                                             </div>

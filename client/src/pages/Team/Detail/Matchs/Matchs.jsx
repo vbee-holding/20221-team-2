@@ -19,9 +19,9 @@ const Matchs = () => {
                                 </div>
                                 <Link to={`/matchDetail/${listMatchs[0]}`} className ='link-team' >
                                     <div className="row card-body hover">
-                                        <div className="col"> <img src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-4/ARG?tx=c_fill,g_auto,q_auto,w_24"></img> ARG</div>
+                                        <div className="col"> <img src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-4/ARG?tx=c_fill,g_auto,q_auto,w_24" alt='anh'></img> ARG</div>
                                         <div className="col">(4)3-3(2)</div>
-                                        <div className="col"> <img src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-4/FRA?tx=c_fill,g_auto,q_auto,w_24"></img> FRA</div>
+                                        <div className="col"> <img src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-4/FRA?tx=c_fill,g_auto,q_auto,w_24" alt='anh'></img> FRA</div>
                                     </div>
                                 </Link>
                             </div>
@@ -36,9 +36,9 @@ const Matchs = () => {
                                 </div>
                                 <Link to={`/matchDetail/${listMatchs[1]}`} className ='link-team' >
                                     <div className="row card-body hover">
-                                        <div className="col"> <img src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-4/ARG?tx=c_fill,g_auto,q_auto,w_24"></img> ARG</div>
+                                        <div className="col"> <img src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-4/ARG?tx=c_fill,g_auto,q_auto,w_24" alt='anh'></img> ARG</div>
                                         <div className="col">(4)3-3(2)</div>
-                                        <div className="col"> <img src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-4/FRA?tx=c_fill,g_auto,q_auto,w_24"></img> FRA</div>
+                                        <div className="col"> <img src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-4/FRA?tx=c_fill,g_auto,q_auto,w_24" alt='anh'></img> FRA</div>
                                     </div>
                                 </Link>
                             </div>
