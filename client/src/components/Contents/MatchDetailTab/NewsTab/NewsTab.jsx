@@ -6,7 +6,11 @@ const NewsTab = (props) => {
         <div className='selectedTab3'>
             <div className='selectedTab3Icon'>{<FaPager />}</div>
             <div className='selectedTab3Title'>
-                Gần đây, không có tin tức nào về {props.arr[0].team1} hoặc {props.arr[0].team2}
+                Gần đây, không có tin tức nào về <a 
+                    className='selectedTab3TitleNews' href={props.arr.LinkHomeTeam}>{props.arr.HomeTeam.TeamName}
+                </a> hoặc <a
+                     className='selectedTab3TitleNews' href={props.arr.LinkAwayTeam}>{props.arr.AwayTeam.TeamName}
+                </a>
             </div>
         </div>
     )
