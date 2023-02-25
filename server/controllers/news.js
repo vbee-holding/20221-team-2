@@ -8,39 +8,27 @@ router.get('/:id', async (req,res)=>{
 })
 router.get('/',async (req,res)=>{
     const resDatas = await News.find({});
-    res.send(resDatas);
-})
-module.exports = router;
-
-
-/* 
-dataSend=[]
-    for(let i=0;i<resDatas.length;i++){
-        resData=resDatas[i];
-        let newData={
-            title:resData.title,
-            items:JSON.parse(resData.items),
-            seeAllLink:resData.seeAllLink
-        }
-        dataSend.push(newData)
-    } */
-
-    /* const resDatas = await News.find({});
-    let resData=resDatas[5];
-    let items=resData.items;
-    let dataSend=[];
-    for(let i=0;i<items.length;i++){
-        let item=items[i];
-        let semanticTags=[];
-        for(let j=0;j<item.semanticTags.length;j++){
-            let seman=item.semanticTags[j];
-            semanticTags.push(seman.title);
-        }
+    let dataSends=[];
+    var one_day = 1000 * 60 * 60 * 24;
+    var present_date = new Date();
+    
+    //let datatime=new Date(datamatchs.LocalDate);
+        //let datemonth=datatime.getDate()+"/"+(datatime.getMonth()+1);
+    for(let i =0;i<resDatas.length;i++){
+        let resData=resDatas[i];
+        let items=resData.items;
+        let dataSend=[];
+         for(let k=0;k<items.length;k++){
+            let item=items[k];
+        
+        
+        let datatime=new Date(item.publishDate);
         let newData={
             title:item.title,
-            PageUrl:item.readMorePageUrl,
-            imageUrl:item.image.src,
-            semanticTags:semanticTags
+            PageUrl:item.PageUrl,
+            imageUrl:item.imageUrl,
+            semanticTags:item.semanticTags,
+            dateDis:(Math.round(present_date.getTime()-datatime.getTime()) / (one_day)).toFixed(0)
         }
         dataSend.push(newData)
     }
@@ -49,6 +37,13 @@ dataSend=[]
         items:dataSend,
         seeAllLink:resData.seeAllLink
     }
+    dataSends.push(finalData);
+    }
+    
+    
+    
 
 
-    res.send(finalData); */
+    res.send(dataSends);
+})
+module.exports = router;
