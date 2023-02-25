@@ -30,6 +30,7 @@ app.use('/api/detailmatch',require("./controllers/DetailsMatch"));
 app.use('/api/matchschema',require("./controllers/MatchSchema"));
 app.use('/api/summarymatch',require("./controllers/SummaryMatch"));
 app.use('/api/news',require("./controllers/news"));
+app.use('/api/taticsmatch',require("./controllers/TaticsMatch"));
 
 
 app.listen(config.PORT,()=> console.log('server running on port'+ config.PORT))
