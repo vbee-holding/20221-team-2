@@ -8,7 +8,7 @@ router.get('/:id', async (req,res)=>{
     res.send(datamatchs);
 })
 router.get('/',async (req,res)=>{
-    const datas= await EventMatch.findOne({});
+    const datas= await EventMatch.find({});
     res.send(datas);
 })
 module.exports = router;

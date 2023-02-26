@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const EventMatchSchemal = new Schema({
-    Group:String,
-    Data:Array
+    IdMatch:Number,
+    EventArr:Array
 });
 
 
