@@ -23,7 +23,7 @@ router.get('/:id', async (req,res)=>{
         position:player.PositionLocalized,
         nation:team.Name,
         nationImage:team.PictureUrl.replace("{format}","sq").replace("{size}","4"),
-        infomation:"https://www.google.com/search?q="+player.PlayerName
+        information:"https://www.google.com/search?q="+player.PlayerName
     }
     dataSend[player.PlayerName.toLowerCase()]=newData;
     res.send(dataSend);
@@ -49,7 +49,7 @@ router.get('/',async (req,res)=>{
             position:player.PositionLocalized,
             nation:team.Name,
             nationImage:team.PictureUrl.replace("{format}","sq").replace("{size}","4"),
-            infomation:"https://www.google.com/search?q="+player.PlayerName
+            information:"https://www.google.com/search?q="+player.PlayerName
 
     }
     dataSends[player.PlayerName.toLowerCase()]=newData;
