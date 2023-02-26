@@ -1,12 +1,10 @@
 .Statistics {
     margin: auto;
     max-width: 790px;
-    margin-top: 65px;
+    margin-top: 70px;
     border: 0.5px solid rgba(0,0,0,.12);
     font-family: Arial;
-    padding-left: 25px;
-    padding-right: 25px;
-    padding-bottom: 50px;
+    padding-bottom: 15px;
 }
 
 .loopStat1 {
@@ -17,12 +15,13 @@
 }
 
 .opening1 {
+    padding-left: 8px;
     font-size: 16px;
     font-weight: 500;
 }
 
 .opening2 {
-    margin-top: -5px;
+    padding-left: 8px;
     color: #70757a;
     font-size: 12px;
     font-weight: normal;
@@ -31,7 +30,7 @@
 }
 
 .category2 {
-    margin-left: 503px;
+    margin-left: 500px;
     width: 200px;
     text-align: right;
 }
@@ -56,11 +55,10 @@ a {
     border-left: 0cm;
     border-bottom: 0cm;
     border-right: 0cm;
-    height: 45px;
+    height: 40px;
 }
 
 .bodyRank {
-    margin-left: -3px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -70,9 +68,9 @@ a {
 
 .bodyImage {
     border-radius: 50%;
-    width: 47px;
-    margin-top: 6px;
+    width: 45px;
     margin-left: 20px;
+    margin-top: 6px;
 }
 
 .bodyNation {
@@ -105,7 +103,7 @@ a {
     color: #70757a;
 }
 
-.bodyQuantity {
+.bodyGoals {
     margin-left: 290px;
     display: flex;
     flex-direction: column;

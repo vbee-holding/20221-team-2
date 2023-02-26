@@ -21,7 +21,7 @@ router.get('/',async (req,res)=>{
     const datas = await Player.aggregate((
         [
            { 
-             $sample: { size: 100 } 
+             $sample: { size: 50 } 
            }
         ]
      ));
