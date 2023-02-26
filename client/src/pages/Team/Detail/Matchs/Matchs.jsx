@@ -1,51 +1,53 @@
-import React, {} from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import './Matchs.css'
 import '../../../../../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../../../../../node_modules/bootstrap/dist/js/bootstrap.bundle';
+import axios from "axios";
 const Matchs = () => {
-    const listMatchs = [1,2];
-
+    const idTeam = useParams()
+    const [matchs, setMatchs] = useState([]);
+    useEffect(()=>{ 
+        const fetchMatchs = async() =>{
+            const team = await axios('http://localhost:5005/api/team/'+ idTeam.id);
+            console.log('listMatch',(team.data.IdMatchs[0]))
+            let matchDetail = []
+            for(let i=0; i<team.data.IdMatchs.length; i++){
+                const detail = await axios('http://localhost:5005/api/overviewmatch/'+ team.data.IdMatchs[i])
+                console.log(detail)
+                matchDetail.push(detail.data)
+            }
+            console.log("matchs",matchDetail)
+            setMatchs(matchDetail)
+        };
+        fetchMatchs();
+    },[])
     return(
             <div className="Matchs">
                 <div className="d-flex justify-content-center Matchs-body">
                     <div className="col-md-8">
-                        {/* Trận 1 */}
-                        <div className="row my-2">
-                            <div className="card mx-2 Match-detail">
-                                <div className="row card-header" id="card-header">
-                                    <div className="col">Chung kết</div>
-                                    <div className="col">18/12/2022</div>
-                                </div>
-                                <Link to={`/matchDetail/${listMatchs[0]}`} className ='link-team' >
-                                    <div className="row card-body hover">
-                                        <div className="col"> <img src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-4/ARG?tx=c_fill,g_auto,q_auto,w_24" alt='anh'></img> ARG</div>
-                                        <div className="col">(4)3-3(2)</div>
-                                        <div className="col"> <img src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-4/FRA?tx=c_fill,g_auto,q_auto,w_24" alt='anh'></img> FRA</div>
+                        {
+                            matchs && matchs.map(match => {
+                                return(
+                                    <div className="row my-2" key={match.idMatch}>
+                                    <div className="card mx-2 Match-detail">
+                                        <div className="row card-header" id="card-header">
+                                            <div className="col">{match.Description}</div>
+                                            <div className="col">{match.Date}/2022</div>
+                                        </div>
+                                        <Link to={`/matchDetail/${match.IdMatch}`} className ='link-team' >
+                                            <div className="row card-body hover">
+                                                <div className="col"> <img className="icon" src={match.AwayTeam.PictureUrl} alt='anh'></img> {match.AwayTeam.TeamName}</div>
+                                                <div className="col">{match.AwayTeam.Score} - {match.HomeTeam.Score}</div>
+                                                <div className="col"> <img className="icon" src={match.HomeTeam.PictureUrl} alt='anh'></img> {match.HomeTeam.TeamName}</div>
+                                            </div>
+                                        </Link>
                                     </div>
-                                </Link>
-                            </div>
-                        </div>
-
-                        {/* Trận 1 */}
-                        <div className="row my-2">
-                            <div className="card mx-2 Match-detail">
-                                <div className="row card-header" id="card-header">
-                                    <div className="col">Chung kết</div>
-                                    <div className="col">18/12/2022</div>
                                 </div>
-                                <Link to={`/matchDetail/${listMatchs[1]}`} className ='link-team' >
-                                    <div className="row card-body hover">
-                                        <div className="col"> <img src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-4/ARG?tx=c_fill,g_auto,q_auto,w_24" alt='anh'></img> ARG</div>
-                                        <div className="col">(4)3-3(2)</div>
-                                        <div className="col"> <img src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-4/FRA?tx=c_fill,g_auto,q_auto,w_24" alt='anh'></img> FRA</div>
-                                    </div>
-                                </Link>
-                            </div>
-                        </div>
+                                )
+                            })
+                        }
 
-                        
-  
                     </div>
                 </div>
             </div>

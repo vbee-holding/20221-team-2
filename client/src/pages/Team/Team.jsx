@@ -1,4 +1,4 @@
-import React,{ useState } from "react";
+import React,{ useEffect, useState } from "react";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import Matchs from "./Detail/Matchs/Matchs";
@@ -6,6 +6,8 @@ import Squad from "./Detail/Squad.css/Squad";
 import './Team.css';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../../../node_modules/bootstrap/dist/js/bootstrap.bundle';
+import { useParams } from "react-router-dom";
+import axios from "axios";
 const Team = () =>{
     const[active1, setActive1] = useState(true);
     const[active2, setActive2] = useState(false);
@@ -17,6 +19,15 @@ const Team = () =>{
         setActive2(true)
         setActive1(false)
     }
+    const idTeam = useParams()
+    const [team, setTeam] = useState('');
+    useEffect(() =>{
+        const fetchTeam = async() =>{
+            const team = await axios('http://localhost:5005/api/team/'+ idTeam.id);
+            setTeam(team.data)
+        }
+        fetchTeam();
+    },[])
     return(
         <div>
             <Header/>
@@ -27,7 +38,13 @@ const Team = () =>{
                             <div className="row">
                                 <div className="col">
                                     <p className="h3 my-2">
-                                    <img className="icon-header-team" src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-4/ARG?tx=c_fill,g_auto,q_auto" alt=""></img> Argentina
+                                        {
+                                            team &&(
+                                                <div>
+                                                    <img className="icon-header-team" src={team.PictureUrl} alt=""></img> {team.Name}
+                                                </div>
+                                            )
+                                        }
                                     </p>
                                 </div>
                                 
