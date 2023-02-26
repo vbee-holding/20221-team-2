@@ -78,7 +78,13 @@
 }
 
 .mDetail3 {
-    text-align: center;
+    color: black;
+    display: flex;
+    justify-content: center;
+}
+
+.mDetail3:hover {
+    text-decoration: underline;
 }
 
 .mDetail3Pen {
