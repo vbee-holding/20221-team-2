@@ -55,21 +55,29 @@ const MatchDetail = () => {
                             <div className='mDetail2Team2'>{child.AwayTeam.TeamName}</div>
                         </a>
                     </div>
-                    <div className='mDetail3'>{child.Description} - {child.Group}</div>
+                    {console.log(child.HomeTeamPenaltyScore)}
+                    {(child.AwayTeam.Score === child.HomeTeam.Score && child.Description !== 'Vòng đấu bảng') ? (
+                        <pre className='mDetail3Pen'>{child.HomeTeamPenaltyScore}    penalty   {console.log(typeof(child.AwayTeam.Score))} {child.AwayTeamPenaltyScore}</pre>) : <div></div>
+                    }
+                    <div className='mDetail3'>{child.Description} {child.Group == 0 ? '' : '-'} {child.Group == 0 ? '' : child.Group}</div>
                     <div className='mDetail4'>
                         <div className='mDetail4List'>
-                            {child.HomeTeam.Goals.map((element) => (
-                                <a key={element.Minute} className='mDetail4ListPlayer' href={element.UrlPlayer}>
-                                    <div className='mDetail4ListText' key={element}>{element.NamePlayer} {element.Minute}</div>
-                                </a>
+                            {child.HomeTeam.Goals.map((element, index) => (
+                                ((index) < child.HomeTeam.Score) ? (
+                                    <a key={element.Minute} className='mDetail4ListPlayer' href={element.UrlPlayer}>
+                                        <div className='mDetail4ListText' key={element}>{element.NamePlayer} {element.Minute}</div>
+                                    </a>
+                                ) : ''
                             ))}
                         </div>
                         <div className='mDetail4Futbol'>{<FaFutbol />}</div>
                         <div className='mDetail4List'>
-                            {child.AwayTeam.Goals.map((element) => (
-                                <a key={element.Minute} className='mDetail4ListPlayer' href={element.UrlPlayer}>
-                                    <div className='mDetail4ListText' key={element}>{element.NamePlayer} {element.Minute}</div>
-                                </a>
+                            {child.AwayTeam.Goals.map((element, index) => (
+                                ((index) < child.AwayTeam.Score) ? (
+                                    <a key={element.Minute} className='mDetail4ListPlayer' href={element.UrlPlayer}>
+                                        <div className='mDetail4ListText' key={element}>{element.NamePlayer} {element.Minute}</div>
+                                    </a>
+                                ) : ''
                             ))}
                         </div>
                     </div>
