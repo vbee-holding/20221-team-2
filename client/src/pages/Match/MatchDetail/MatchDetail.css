@@ -81,6 +81,13 @@
     text-align: center;
 }
 
+.mDetail3Pen {
+    color: rgb(49, 163, 163);
+    font-weight: 600;
+    text-align: center;
+    margin-left: 10px;
+}
+
 .mDetail4 {
     display: flex;
     justify-content: space-between;
@@ -102,7 +109,7 @@
 
 .mDetail4Futbol {
     position: absolute;
-    top: 280px;
+    top: 300px;
     left: 49.54%;
     font-size: 20px;
 }
@@ -110,7 +117,7 @@
 .mDetail5 {
     display: flex;
     justify-content: center;
-    margin-top: 24px;
+    margin-top: 50px;
 }
 
 .mDetail5Link {

@@ -3,7 +3,7 @@ const router = express.Router();
 const EventMatch = require("../models/EventMatch")
 
 router.get('/:id', async (req,res)=>{
-    let datamatchs = await EventMatch.findOne({IDMatch: req.params.id}); 
+    let datamatchs = await EventMatch.findOne({IdMatch: req.params.id}); 
     
     res.send(datamatchs);
 })
