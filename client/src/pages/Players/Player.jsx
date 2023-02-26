@@ -1,3 +1,10 @@
+import { useState, useEffect } from "react"
+import axios from 'axios'
+import Header from "../../components/Header/Header"
+import Footer from "../../components/Footer/Footer"
+import {playerData} from './PlayerData'
+import './Player.css'
+
 const Player = () => {
     const [data, setData] = useState({})
 
