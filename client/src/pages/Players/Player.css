@@ -22,9 +22,18 @@
     display: inline-block;
 }
 
-.loopImage {
+.loopImage1 {
     height: 100px;
-    width: 99px;
+    width: 100px;
+    border-top-left-radius: 8%;
+    border-top-right-radius: 8%;
+}
+
+.loopImage2 {
+    height: 100px;
+    width: 100px;
+    object-position: top;
+    object-fit: cover;
     border-top-left-radius: 8%;
     border-top-right-radius: 8%;
 }
@@ -34,6 +43,7 @@
     font-weight: 400;
     color: black;
     margin-left: 8px;
+  
 }
 
 .loopPosition {

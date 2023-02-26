@@ -13,6 +13,7 @@ function titleCase(str) {
 
 router.get('/:id', async (req,res)=>{
     let players = await Player.find({IdTeam:req.params.id});
+
     res.send(players);
 })
 
@@ -20,7 +21,7 @@ router.get('/',async (req,res)=>{
     const datas = await Player.aggregate((
         [
            { 
-             $sample: { size: 50 } 
+             $sample: { size: 100 } 
            }
         ]
      ));

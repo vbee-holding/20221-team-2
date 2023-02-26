@@ -9,15 +9,9 @@ import '../../../node_modules/bootstrap/dist/js/bootstrap.bundle';
 import { useState } from 'react'
 
 const Ranking = () => {
-    const [state, setState] = useState('Group');
-    const changeGroup = () => {
-        setState('Group')
-        console.log("Group")
-    }
-    const changeBracket = () =>{
-        setState('Bracket')
-        console.log("Bracket")
-
+    const [tab, setTab] = useState(0)
+    const changeTab = (i) =>{
+        setTab(i)
     }
     return (
         <React.Fragment>
@@ -26,19 +20,19 @@ const Ranking = () => {
                 <nav className='nav nav-tabs navbar-ranking justify-content-center'>                
                     <div className="row ranking ">
                         <div className="col nav-item mx-5 my-2">
-                            <button class="btn btn-outline-warning button-rank" type="button" onClick={changeGroup}>Vòng bảng</button>
+                            <button class="btn btn-outline-warning button-rank" type="button" onClick={() => changeTab(0)}>Vòng bảng</button>
                         </div>
                         <div className='col nav-item mx-5 my-2'>
-                            <button class="btn btn-outline-warning button-rank" type="button" onClick={changeBracket} >Vòng loại 16 đội</button>
+                            <button class="btn btn-outline-warning button-rank" type="button" onClick={() =>changeTab(1)} >Vòng loại 16 đội</button>
                         </div>
                     </div>
                     
                 </nav>
                 {
-                    state === 'Group' && (<div><Group/> <MartChart/></div>)
+                    tab === 0 && (<div><Group/> <MartChart/></div>)
                 }
                 {
-                    state === 'Bracket' && (<div><MartChart/> <Group/></div>)
+                    tab === 1 && (<div><MartChart/> <Group/></div>)
                 }
                 <Footer />
             </div>
