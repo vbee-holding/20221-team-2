@@ -6,7 +6,7 @@ const TeamSchema = new Schema({
     IdAssociation:String,
     Name:String,
     PictureUrl:String,
-    IdMatchs:String   
+    IdMatchs:Array   
 });
 
 

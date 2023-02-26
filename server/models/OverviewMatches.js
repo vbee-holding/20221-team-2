@@ -16,7 +16,9 @@ const OverviewMatchSchema = new Schema({
     VideoURL:String,
     TimePlay:String,
     AwayTeam:Object,
-    HomeTeam:Object
+    AwayTeamPenaltyScore:Number,
+    HomeTeam:Object,
+    HomeTeamPenaltyScore:Number
 });
 
 
