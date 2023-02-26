@@ -12,21 +12,8 @@ function titleCase(str) {
 
 
 router.get('/:id', async (req,res)=>{
-    let player = await Player.findOne({IdPlayer:req.params.id});
-    let team = await Team.findOne({IdTeam:player.IdTeam});
-    let dataSend={}
-    let newData={
-        idTeam:player.IdTeam,
-        idPlayer:player.IdPlayer,
-        playerName:player.PlayerName,
-        playerPicture:player.PlayerPicture,
-        position:player.PositionLocalized,
-        nation:team.Name,
-        nationImage:team.PictureUrl.replace("{format}","sq").replace("{size}","4"),
-        information:"https://www.google.com/search?q="+player.PlayerName
-    }
-    dataSend[player.PlayerName.toLowerCase()]=newData;
-    res.send(dataSend);
+    let players = await Player.find({IdTeam:req.params.id});
+    res.send(players);
 })
 
 router.get('/',async (req,res)=>{ 
