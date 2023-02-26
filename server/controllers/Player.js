@@ -13,6 +13,7 @@ function titleCase(str) {
 
 router.get('/:id', async (req,res)=>{
     let players = await Player.find({IdTeam:req.params.id});
+
     res.send(players);
 })
 
