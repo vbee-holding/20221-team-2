@@ -2,6 +2,7 @@ import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { FaFutbol, FaYoutube } from 'react-icons/fa'
+import { Link } from "react-router-dom";
 import './MatchDetail.css'
 import Header from '../../../components/Header/Header'
 import Footer from '../../../components/Footer/Footer'
@@ -59,7 +60,7 @@ const MatchDetail = () => {
                     {(child.AwayTeam.Score === child.HomeTeam.Score && child.Description !== 'Vòng đấu bảng') ? (
                         <pre className='mDetail3Pen'>{child.HomeTeamPenaltyScore}    penalty   {console.log(typeof(child.AwayTeam.Score))} {child.AwayTeamPenaltyScore}</pre>) : <div></div>
                     }
-                    <div className='mDetail3'>{child.Description} {child.Group == 0 ? '' : '-'} {child.Group == 0 ? '' : child.Group}</div>
+                    <Link to={child.Description === 'Vòng đấu bảng' ? '/ranking' : '/matchChart'} className='mDetail3'>{child.Description} {child.Group == 0 ? '' : '-'} {child.Group == 0 ? '' : child.Group}</Link>
                     <div className='mDetail4'>
                         <div className='mDetail4List'>
                             {child.HomeTeam.Goals.map((element, index) => (
