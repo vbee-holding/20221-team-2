@@ -21,6 +21,7 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, "..","client/build")));
 
 app.use('/api/player',require("./controllers/Player"));
+app.use('/api/coach',require("./controllers/Coach"));
 app.use('/api/tutorialmatch',require("./controllers/TutorialMatch"));
 //app.use('/api/hightlight',require("./controllers/VideoURL"));
 app.use('/api/overviewmatch',require("./controllers/OverviewMatches"));
