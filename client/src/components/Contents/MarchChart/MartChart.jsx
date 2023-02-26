@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{ useEffect, useState } from 'react';
 import {
     SingleEliminationBracket,
     Match,
@@ -7,11 +7,23 @@ import {
   } from "@g-loot/react-tournament-brackets";
   import { useNavigate } from 'react-router-dom';
 import "./MartChart.css";
-import { Bracket } from '../../../apis/apiMartChart';
 import '../../../../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../../../../node_modules/bootstrap/dist/js/bootstrap.bundle';
+import axios from 'axios';
+import { Bracket } from '../../../apis/apiMartChart';
+
 const MartChart = () => {
   const navigate = useNavigate();
+  const [match, setMatch] = useState('');
+  useEffect(() =>{
+    const fetchData = async () => {
+      const data = await axios.get('http://localhost:5005/api/matchschema')
+      data.data.splice( 14, 1 );
+      setMatch( data.data)
+      console.log("Bracket",Bracket)
+    }
+    fetchData()
+  },[])
   const GoToMatchDetail = (id) =>{
   console.log(id)
   navigate(`/matchDetail/${id}`,{replace: true})
@@ -35,47 +47,51 @@ const MartChart = () => {
               </div>
               <div className="line"></div>
           </section>
-      
-
-      <SingleEliminationBracket
-      theme={GlootTheme}
-      matches={Bracket}
-      matchComponent={Match}
-      svgWrapper={({ children, ...props }) => (
-        <SVGViewer
-          width={1500}
-          height={700}
-          background="#FCFFF2"
-          SVGBackground="#FCFFF2"
-
-          {...props}
-        >
-          {children}
-        </SVGViewer>
-      )}
-      onMatchClick={(match) => GoToMatchDetail(match.match.id)}
-      onPartyClick={(match) => GoToTeamDetail(match.id)}
-    />
+          {
+            match && (
+              <div className='d-flex justify-content-center'>
+                <SingleEliminationBracket
+                  theme={GlootTheme}
+                  matches={match}
+                  matchComponent={Match}
+                  svgWrapper={({ children, ...props }) => (
+                    <SVGViewer
+                      width={1500}
+                      height={1000}
+                      background="#FCFFF2"
+                      SVGBackground="#FCFFF2                   "
+            
+                      {...props}
+                    >
+                      {children}
+                    </SVGViewer>
+                  )}
+                  onMatchClick={(match) => GoToMatchDetail(match.match.id)}
+                  onPartyClick={(match) => GoToTeamDetail(match.id)}
+                />
+              </div>
+            )
+          }
     </div>
   )
 }
 const GlootTheme = createTheme({
-    textColor: { main: "#000000", highlighted: "#F4F2FE", dark: "#707582" },
-    matchBackground: { wonColor: "#2D2D59", lostColor: "#1B1D2D" },
+    textColor: { main: "#ffffff", highlighted: "#111111", dark: "#111111" },
+    matchBackground: { wonColor: "#cdf6fa6e", lostColor: "#cdf6fa6e" },
     score: {
       background: {
-        wonColor: `#10131C`,
-        lostColor: "#10131C"
+        wonColor: `#6ccdf470`,
+        lostColor: "#6ccdf470"
       },
-      text: { highlightedWonColor: "#7BF59D", highlightedLostColor: "#FB7E94" }
+      text: { highlightedWonColor: "#FA1414", highlightedLostColor: "#FA1414" }
     },
     border: {
-      color: "#E34949",
-      highlightedColor: "RGBA(152,82,242,0.4)"
+      color: "#abc3d1e0",
+      highlightedColor: "#111111"
     },
-    roundHeader: { backgroundColor: "#3B3F73", fontColor: "#F4F2FE" },
-    connectorColor: "#E34949",
-    connectorColorHighlight: "#E34949",
+    roundHeader: { backgroundColor: "#6BD4FA", fontColor: "#F4F2FE" },
+    connectorColor: "#FC0505",
+    connectorColorHighlight: "#FC0505",
     svgBackground: "#0F121C"
 });
 export default MartChart

@@ -2,8 +2,11 @@
     background-color: beige;
     text-align: center;
 }
-.logo1{
+.logo{
     text-align: left !important;
+}
+.logo1{
+    width: 16%;
 }
 .logo2 {
     width: 80%;
@@ -18,4 +21,8 @@
 }
 .header-squad{
     text-align: left;
+}
+.link-team{
+    text-decoration: none;
+    color: black !important;
 }

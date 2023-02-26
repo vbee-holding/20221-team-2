@@ -32,7 +32,7 @@ const Stat = () => {
                                                     <div className='nationName'>{child.nationName}</div>
                                                 </div>
                                             </div>
-                                            <div className='bodyGoals'>{child.quantity}</div>
+                                            <div className='bodyQuantity'>{child.quantity}</div>
                                         </div>
                                     </a>
                                 ))}
