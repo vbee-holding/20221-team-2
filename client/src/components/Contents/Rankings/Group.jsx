@@ -44,7 +44,7 @@ const Group = () =>{
                         {
                             groups && groups.map(group =>{
                                 return(
-                                    <div className="col-md-6" key={group._id}>
+                                    <div className="col-md-6 my-2" key={group._id}>
                                         <div className="card my-2" id ="group-team">
                                             <p className='h5 mx-2'> Group {group.Group}</p> 
                                             <div className="table-body">
