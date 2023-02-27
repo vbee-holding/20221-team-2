@@ -23,12 +23,17 @@ const MatchDetail = () => {
         fetchData()
     }, []);
     const [data, setData] = useState([])
-    
+    const [ currentTab, setCurrentTab ] = useState('1')
     //Dùng Hook useState để lưu giá trị khi onClick
     const [selectedTab, setSelectedTab] = useState(0)
     //Set lại selectedTab = index
-    const handleTabChange = (index) => {
+    const handleTabChange = (index, e) => {
         setSelectedTab(index)
+        const id = e.target.getAttribute('id')
+        if(id === '1') setCurrentTab('1')
+        if(id === '2') setCurrentTab('2')
+        if(id === '3') setCurrentTab('3')
+        if(id === '4') setCurrentTab('4')
     }
 
     //Lấy id trên URL 
@@ -96,10 +101,10 @@ const MatchDetail = () => {
                         </a>
                     </div>
                     <div className='mDetail7'>
-                        <button autoFocus className='mDetail7Item' onClick={() => handleTabChange(0)}>DIỄN BIẾN CHÍNH</button>
-                        <button className='mDetail7Item' onClick={() => handleTabChange(1)}>ĐỘI HÌNH RA SÂN</button>
-                        <button className='mDetail7Item' onClick={() => handleTabChange(2)}>THỐNG KÊ</button>
-                        <button className='mDetail7Item' onClick={() => handleTabChange(3)}>TIN TỨC</button>
+                        <button id='1' autoFocus className={`mDetail7Item ${currentTab=='1' && 'active1'}`} onClick={(e) => handleTabChange(0, e)}>DIỄN BIẾN CHÍNH</button>
+                        <button id='2' className={`mDetail7Item ${currentTab=='2' && 'active1'}`} onClick={(e) => handleTabChange(1, e)}>ĐỘI HÌNH RA SÂN</button>
+                        <button id='3' className={`mDetail7Item ${currentTab=='3' && 'active1'}`} onClick={(e) => handleTabChange(2, e)}>THỐNG KÊ</button>
+                        <button id='4' className={`mDetail7Item ${currentTab=='4' && 'active1'}`} onClick={(e) => handleTabChange(3, e)}>TIN TỨC</button>
                     </div>
                     {selectedTab === 0 && <HappeningsTab arr={child}/>}
                     {selectedTab === 1 && <SquadTab arr={child}/>}
