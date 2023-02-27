@@ -2,7 +2,7 @@ import React,{ useEffect, useState } from "react";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import Matchs from "./Detail/Matchs/Matchs";
-import Squad from "./Detail/Squad.css/Squad";
+import Squad from "./Detail/Squads/Squad";
 import './Team.css';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../../../node_modules/bootstrap/dist/js/bootstrap.bundle';

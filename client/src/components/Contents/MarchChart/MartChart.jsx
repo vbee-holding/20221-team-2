@@ -4,8 +4,8 @@ import {
     Match,
     SVGViewer,
     createTheme
-  } from "@g-loot/react-tournament-brackets";
-  import { useNavigate } from 'react-router-dom';
+} from "@g-loot/react-tournament-brackets";
+import { useNavigate } from 'react-router-dom';
 import "./MartChart.css";
 import '../../../../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../../../../node_modules/bootstrap/dist/js/bootstrap.bundle';
@@ -22,6 +22,7 @@ const MartChart = () => {
       setMatch( data.data)
       console.log("Bracket",Bracket)
     }
+    console.log(window.innerWidth, window.innerHeight)
     fetchData()
   },[])
   const GoToMatchDetail = (id) =>{
@@ -31,6 +32,8 @@ const MartChart = () => {
   const GoToTeamDetail = (id) =>{
     navigate(`/team/${id}`, {replace: true})
   }
+  const finalWidth = Math.max(window.innerWidth - 50, 500);
+  const finalHeight = Math.max(window.innerWidth- 100, 500);
   return(
     <div className="Home">
       <section className='p-3'>
@@ -56,10 +59,10 @@ const MartChart = () => {
                   matchComponent={Match}
                   svgWrapper={({ children, ...props }) => (
                     <SVGViewer
-                      width={1500}
-                      height={1000}
+                      width={finalWidth}
+                      height={finalHeight}
                       background="#FCFFF2"
-                      SVGBackground="#FCFFF2                   "
+                      SVGBackground="#FCFFF2"
             
                       {...props}
                     >
