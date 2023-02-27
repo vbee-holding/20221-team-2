@@ -4,7 +4,6 @@
 .groups{
     background-color: #eeeee4;
     font-style: initial;
-    padding-top: 50px;
 }
 #group-team{
     background-color: #9aecffa3;
@@ -27,4 +26,8 @@ li{
 }
 .icon{
     border-radius: 15%;
+}
+.card{
+    width: 10%;
+    height: 20%;
 }

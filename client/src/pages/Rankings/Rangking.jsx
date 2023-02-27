@@ -18,7 +18,7 @@ const Ranking = () => {
             <div>
                 <Header />
                 <nav className='nav nav-tabs navbar-ranking justify-content-center'>                
-                    <div className="row ranking ">
+                    <div className="row ranking">
                         <div className="col nav-item mx-5 my-2">
                             <button class="btn btn-outline-warning button-rank" type="button" onClick={() => changeTab(0)}>Vòng bảng</button>
                         </div>

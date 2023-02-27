@@ -1,9 +1,9 @@
 .ranking {
-    margin-top: 110px;
+    padding-top: 110px;
     text-align: center;
 }
 .navbar-ranking{
-    background-color: rgba(156, 190, 236, 0.582);
+    background-color: rgb(156, 189, 236);
     border: 5px;
     border-color: red;
 }
