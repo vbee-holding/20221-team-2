@@ -24,3 +24,9 @@
     background-color: rgb(37,154,190);
     cursor: pointer;
 }
+
+.active {
+    color: #fff;
+    background-color: rgb(37,154,190);
+    cursor: pointer;
+}
